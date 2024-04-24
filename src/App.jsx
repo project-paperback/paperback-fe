@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavigationLinks from "./components/nav/NavLinks";
-import BrandLogo from "./components/icons/BrandLogo";
+
+import NavBar from "./components/nav/NavBar";
 
 function App() {
   return (
-    <div>
+    <div className="">
       <BrowserRouter>
-        <BrandLogo />
-        {/* <NavigationLinks /> */}
+        <div className=" h-screen w-full px-10">
+          <NavBar />
+        </div>
+        <NavBar />
       </BrowserRouter>
     </div>
   );

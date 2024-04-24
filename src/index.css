@@ -14,3 +14,10 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.ignore-child:hover {
+  background-color: rgba(2, 48, 71, 0.2);
+}
+
+.ignore-child:hover > * {
+}
