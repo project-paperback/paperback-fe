@@ -14,10 +14,22 @@
   font-weight: 400;
   font-style: normal;
 }
-
-.ignore-child:hover {
-  background-color: rgba(2, 48, 71, 0.2);
+.quick-view-container {
+  transition: all ease-in 200ms;
+  transform: translateY(100%);
 }
 
-.ignore-child:hover > * {
+.card-container:hover .quick-view-container {
+  transition: all ease-in 150ms;
+  transform: translateY(0);
+}
+
+.add-to-cart-btn {
+  transition: all ease-in 200ms;
+  opacity: 0;
+}
+
+.card-container:hover .add-to-cart-btn {
+  transition: all ease-in 200ms;
+  opacity: 1;
 }
