@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/nav/NavBar";
 import BookTile from "./components/bookstore/BookTile";
+import ContactForm from "./components/contact/ContactForm";
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
           <NavBar />
 
           <BookTile />
+          <ContactForm />
         </div>
-        <NavBar />
       </BrowserRouter>
     </div>
   );
