@@ -11,7 +11,7 @@ const ContactForm = () => {
   return (
     <form
       action=""
-      className="contact-form border-[20px] border-[#023047] w-[60%] p-[5rem] flex flex-col gap-10"
+      className="contact-form border-[20px] border-[#023047] lg:w-[60%] p-[5rem] flex flex-col gap-10"
     >
       <div className="mb-3">
         <div className="flex flex-col gap-2">

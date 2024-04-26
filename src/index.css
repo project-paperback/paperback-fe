@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  color: #023047;
+}
+
 /* Font family classes */
 .libre-baskerville-regular {
   font-family: "Libre Baskerville", serif;
@@ -36,6 +40,15 @@
   opacity: 1;
 }
 
+.create-account-link:hover p {
+  transition: all ease-in 200ms;
+  opacity: 0.5;
+}
+
+.create-account-link p {
+  transition: all ease-in 200ms;
+  opacity: 1;
+}
 /* Contact Form */
 
 .contact-form textarea {

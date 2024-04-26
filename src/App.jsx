@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/nav/NavBar";
 import BookTile from "./components/bookstore/BookTile";
-import ContactForm from "./components/contact/ContactForm";
+import ContactForm from "./components/forms/ContactForm";
+import LoginForm from "./components/forms/LoginForm";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <NavBar />
 
           <BookTile />
+          <LoginForm />
           <ContactForm />
         </div>
       </BrowserRouter>
