@@ -17,7 +17,7 @@ export function LoginForm() {
           autoComplete={"off"}
           placeholder={"Email"}
           type={"email"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />
@@ -25,7 +25,7 @@ export function LoginForm() {
           autoComplete={"off"}
           placeholder={"Password"}
           type={"password"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />
@@ -53,7 +53,7 @@ export function SignUp() {
             autoComplete={"off"}
             placeholder={"Name"}
             type={"text"}
-            styles={
+            className={
               "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
             }
           />
@@ -61,7 +61,7 @@ export function SignUp() {
             autoComplete={"off"}
             placeholder={"Surname"}
             type={"text"}
-            styles={
+            className={
               "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
             }
           />
@@ -70,7 +70,7 @@ export function SignUp() {
           autoComplete={"off"}
           placeholder={"Email"}
           type={"email"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />
@@ -79,7 +79,7 @@ export function SignUp() {
             autoComplete={"off"}
             placeholder={"Password"}
             type={"password"}
-            styles={
+            className={
               "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
             }
           />{" "}
@@ -87,7 +87,7 @@ export function SignUp() {
             autoComplete={"off"}
             placeholder={"Confirm Password"}
             type={"password"}
-            styles={
+            className={
               "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
             }
           />
@@ -115,7 +115,7 @@ export function ChangePassword() {
           autoComplete={"off"}
           placeholder={"Current password"}
           type={"password"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />{" "}
@@ -123,7 +123,7 @@ export function ChangePassword() {
           autoComplete={"off"}
           placeholder={"New password"}
           type={"password"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />{" "}
@@ -131,7 +131,7 @@ export function ChangePassword() {
           autoComplete={"off"}
           placeholder={"Confirm new password"}
           type={"password"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />
@@ -158,7 +158,7 @@ export function ChangeAccountDetails() {
           autoComplete={"off"}
           placeholder={"Name"}
           type={"text"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />{" "}
@@ -166,7 +166,7 @@ export function ChangeAccountDetails() {
           autoComplete={"off"}
           placeholder={"Surname"}
           type={"text"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />
@@ -213,9 +213,9 @@ export function ContactForm() {
           autoComplete={"off"}
           type={"text"}
           id={"Name"}
-          labelValue={""}
+          labelvalue={""}
           placeholder={"Name"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]  "
           }
         />
@@ -223,9 +223,9 @@ export function ContactForm() {
           autoComplete={"off"}
           type={"email"}
           id={"Email"}
-          labelValue={""}
+          labelvalue={""}
           placeholder={"Email"}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]  "
           }
         />
@@ -233,7 +233,7 @@ export function ContactForm() {
       <div>
         <TextArea
           placeholder={"Type your message here..."}
-          styles={
+          className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none text-[#023047]  "
           }
         />

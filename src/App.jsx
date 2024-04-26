@@ -9,6 +9,7 @@ import {
   LoginForm,
   SignUp,
 } from "./components/Forms";
+import { BookBasketTile } from "./components/bookstore/BookBasketTile";
 
 function App() {
   return (
@@ -18,12 +19,13 @@ function App() {
           <NavBar />
 
           <BookTile />
-          <ChangeAccountDetails />
+          <BookBasketTile />
+          {/* <ChangeAccountDetails /> */}
 
-          <ChangePassword />
+          {/* <ChangePassword />
           <SignUp />
           <LoginForm />
-          <ContactForm />
+          <ContactForm /> */}
         </div>
       </BrowserRouter>
     </div>
