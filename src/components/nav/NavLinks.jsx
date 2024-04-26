@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { IconProfile, ShoppingCartOutline } from "../icons/Icons";
+import { IconProfile, ShoppingCartOutline } from "../Icons";
 
 const NavigationLinks = () => {
   return (

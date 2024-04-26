@@ -1,4 +1,4 @@
-import { BrandLogo } from "../icons/Icons";
+import { BrandLogo } from "../Icons";
 import NavigationLinks from "./NavLinks";
 
 const NavBar = () => {
