@@ -2,8 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/nav/NavBar";
 import BookTile from "./components/bookstore/BookTile";
-import ContactForm from "./components/forms/ContactForm";
-import LoginForm from "./components/forms/LoginForm";
+import {
+  ChangeAccountDetails,
+  ChangePassword,
+  ContactForm,
+  LoginForm,
+  SignUp,
+} from "./components/Forms";
 
 function App() {
   return (
@@ -13,6 +18,10 @@ function App() {
           <NavBar />
 
           <BookTile />
+          <ChangeAccountDetails />
+
+          <ChangePassword />
+          <SignUp />
           <LoginForm />
           <ContactForm />
         </div>
