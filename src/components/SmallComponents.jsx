@@ -18,19 +18,19 @@ export function TextArea(props) {
   );
 }
 
-export function IncreaseDecreaseBookQty() {
+export function IncreaseDecreaseBookQty(props) {
   return (
     <div>
-      <form action="">
-        <div className=" flex items-center border-[2px] border-[#023047]  px-1">
-          <button className="h-full w-full *:stroke-[#023047] px-[2px]">
+      <form action="" {...props}>
+        <div className=" flex items-center border-[2px] border-[#023047] ">
+          <button className="h-full w-full *:stroke-[#023047]   px-[5px]">
             <IconMinus />
           </button>
           <InputField
-            className={"outline-none w-[40px] h-[30px]  text-center "}
+            className={"outline-none w-[40px] h-[30px]  text-center"}
             maxLength={"2"}
           />
-          <button className="h-full w-full *:stroke-[#023047]  px-[2px]">
+          <button className="h-full w-full *:stroke-[#023047]  px-[5px]">
             <IconPlus />
           </button>
         </div>

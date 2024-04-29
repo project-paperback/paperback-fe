@@ -10,25 +10,18 @@ import {
   SignUp,
 } from "./components/Forms";
 import { BookBasketTile } from "./components/bookstore/BookBasketTile";
+import { Experiment } from "./exp";
 
 function App() {
   return (
-    <div className="">
-      <BrowserRouter>
-        <div className=" h-screen w-full px-10">
-          <NavBar />
+    <BrowserRouter>
+      <div className=" h-screen w-full lg:px-10 ">
+        <NavBar />
 
-          <BookTile />
-          <BookBasketTile />
-          {/* <ChangeAccountDetails /> */}
-
-          {/* <ChangePassword />
-          <SignUp />
-          <LoginForm />
-          <ContactForm /> */}
-        </div>
-      </BrowserRouter>
-    </div>
+        <BookBasketTile />
+        {/* <Experiment /> */}
+      </div>
+    </BrowserRouter>
   );
 }
 export default App;

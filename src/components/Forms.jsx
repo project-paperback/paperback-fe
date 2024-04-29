@@ -10,9 +10,10 @@ import {
 
 export function LoginForm() {
   return (
-    <form className="border-[20px] border-[#023047] p-[5rem] flex flex-col items-center gap-[2rem] ">
+    <form className=" border-[#023047] py-8 lg:p-[5rem] flex flex-col items-center gap-[2rem] border-[10px] lg:border-[20px]   lg:gap-10">
       <h3 className="text-2xl font-bold">Log In</h3>
-      <div className="flex flex-col gap-[4rem] w-[70%]">
+
+      <div className="flex flex-col gap-8 lg:gap-[4rem] w-[70%]">
         <InputField
           autoComplete={"off"}
           placeholder={"Email"}
@@ -45,10 +46,10 @@ export function LoginForm() {
 }
 export function SignUp() {
   return (
-    <form className="border-[20px] border-[#023047] p-[5rem] flex flex-col items-center gap-[2rem] ">
-      <h3 className="text-2xl font-bold">Sign Up</h3>
-      <div className="flex flex-col gap-[4rem] w-[70%]">
-        <div className="flex lg:gap-4 flex-col lg:flex-row gap-[4rem]">
+    <form className="border-[10px] lg:border-[20px] border-[#023047] py-8 lg:p-[5rem] flex flex-col items-center lg:gap-[2rem] ">
+      <h3 className="text-2xl font-bold mb-8 lg:mb-0">Sign Up</h3>
+      <div className="flex flex-col gap-10 lg:gap-[4rem] w-[70%]">
+        <div className="flex lg:gap-[50px] gap-10 flex-col lg:flex-row ">
           <InputField
             autoComplete={"off"}
             placeholder={"Name"}
@@ -66,6 +67,7 @@ export function SignUp() {
             }
           />
         </div>
+
         <InputField
           autoComplete={"off"}
           placeholder={"Email"}
@@ -74,7 +76,8 @@ export function SignUp() {
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />
-        <div className="flex lg:gap-4 flex-col lg:flex-row gap-[4rem]">
+
+        <div className="flex lg:gap-[50px] flex-col lg:flex-row gap-10">
           <InputField
             autoComplete={"off"}
             placeholder={"Password"}
@@ -108,9 +111,11 @@ export function SignUp() {
 }
 export function ChangePassword() {
   return (
-    <form className="border-[20px] border-[#023047] p-[5rem] flex flex-col items-center gap-[2rem] ">
-      <h3 className="text-2xl font-bold">Change account password</h3>
-      <div className="flex flex-col gap-[4rem] w-[70%]">
+    <form className="border-[10px] lg:border-[20px] border-[#023047] p-2 lg:p-[5rem] flex flex-col items-center gap-[2rem] ">
+      <h3 className="text-2xl font-bold text-center">
+        Change account password
+      </h3>
+      <div className="flex flex-col gap-10 lg:gap-[4rem] w-[70%]">
         <InputField
           autoComplete={"off"}
           placeholder={"Current password"}
@@ -151,9 +156,11 @@ export function ChangePassword() {
 
 export function ChangeAccountDetails() {
   return (
-    <form className="border-[20px] border-[#023047] p-[5rem] flex flex-col items-center gap-[2rem] ">
-      <h3 className="text-2xl font-bold">Change user details</h3>
-      <div className="flex flex-col gap-[4rem] w-[70%]">
+    <form className="border-[10px] lg:border-[20px] border-[#023047] p-[2rem] lg:p-[5rem] flex flex-col items-center lg:gap-[2rem] ">
+      <h3 className="text-2xl font-bold mb-[2rem] lg:mb-0">
+        Change user details
+      </h3>
+      <div className="flex flex-col gap-10 lg:gap-[4rem] w-[70%]">
         <InputField
           autoComplete={"off"}
           placeholder={"Name"}
@@ -187,7 +194,7 @@ export function ContactForm() {
   return (
     <form
       action=""
-      className="contact-form border-[20px] border-[#023047]  p-[5rem] flex flex-col gap-10"
+      className="contact-form border-[10px] lg:border-[20px] border-[#023047] p-[2rem] lg:p-[5rem] flex flex-col gap-5 lg:gap-10"
     >
       <div className="mb-3">
         <div className="flex flex-col gap-2">
@@ -208,7 +215,8 @@ export function ContactForm() {
           </Link>
         </div>
       </div>
-      <div className="flex justify-between flex-col lg:flex-row  gap-[6rem]">
+
+      <div className="flex justify-between flex-col lg:flex-row  gap-[50px]  lg:gap-[6rem]">
         <InputField
           autoComplete={"off"}
           type={"text"}
@@ -216,7 +224,7 @@ export function ContactForm() {
           labelvalue={""}
           placeholder={"Name"}
           className={
-            "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]  "
+            "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
         />
         <InputField
@@ -230,6 +238,7 @@ export function ContactForm() {
           }
         />
       </div>
+
       <div>
         <TextArea
           placeholder={"Type your message here..."}
