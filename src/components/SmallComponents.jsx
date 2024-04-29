@@ -21,20 +21,37 @@ export function TextArea(props) {
 export function IncreaseDecreaseBookQty(props) {
   return (
     <div>
-      <form action="" {...props}>
+      <div action="" className={props.className}>
         <div className=" flex items-center border-[2px] border-[#023047] ">
-          <button className="h-full w-full *:stroke-[#023047]   px-[5px]">
+          <button
+            className="h-full w-full *:stroke-[#023047]   px-[5px]"
+            onClick={(e) => {
+              e.preventDefault();
+              props.decreaseQty();
+            }}
+          >
             <IconMinus />
           </button>
-          <InputField
+          <input
             className={"outline-none w-[40px] h-[30px]  text-center"}
             maxLength={"2"}
+            value={props.qty}
+            type="number"
+            onChange={(e) => {
+              props.inputQty(e);
+            }}
           />
-          <button className="h-full w-full *:stroke-[#023047]  px-[5px]">
+          <button
+            className="h-full w-full *:stroke-[#023047]  px-[5px]"
+            onClick={(e) => {
+              e.preventDefault();
+              props.increaseQty();
+            }}
+          >
             <IconPlus />
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
