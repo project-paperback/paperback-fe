@@ -56,7 +56,7 @@ export function BookBasketTile(props) {
         </div>
       </div>
       <div className=" flex flex-col justify-between gap-6 ">
-        <div className="lg:hidden flex flex-col gap-4">
+        <div className="lg:hidden flex flex-col gap-4 pr-3 lg:pr-0">
           <p>
             The magnificet adventures of alfredo in latin american gangs and
             drug dealing

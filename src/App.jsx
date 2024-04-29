@@ -20,11 +20,6 @@ function App() {
 
         <BookBasketTile />
         {/* <Experiment /> */}
-        <SignUp />
-        <LoginForm />
-        <ContactForm />
-        <ChangePassword />
-        <ChangeAccountDetails />
       </div>
     </BrowserRouter>
   );
