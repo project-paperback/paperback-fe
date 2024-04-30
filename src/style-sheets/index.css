@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 * {
+  /* border: solid red 2px; */
 }
 body {
   color: #023047;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Libre Baskerville", serif;
+}
 /* Font family classes */
 .libre-baskerville-regular {
   font-family: "Libre Baskerville", serif;
@@ -21,25 +28,6 @@ body {
 }
 
 /* Animations */
-.quick-view-container {
-  transition: all ease-in 200ms;
-  transform: translateY(100%);
-}
-
-.card-container:hover .quick-view-container {
-  transition: all ease-in 150ms;
-  transform: translateY(0);
-}
-
-.add-to-cart-btn {
-  transition: all ease-in 200ms;
-  opacity: 0;
-}
-
-.card-container:hover .add-to-cart-btn {
-  transition: all ease-in 200ms;
-  opacity: 1;
-}
 
 .create-account-link:hover p {
   transition: all ease-in 200ms;
@@ -57,4 +45,47 @@ body {
 }
 .contact-form textarea::placeholder {
   color: #023047;
+}
+
+/* Grid  gallery*/
+
+.gallery-grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.book-info-card {
+  height: ;
+}
+.card img {
+  aspect-ratio: 2/3;
+  object-fit: cover; /*prevents images from stretch*/
+}
+
+.image-container {
+  overflow: hidden;
+}
+
+.text-title-animation {
+  background-color: salmon;
+  overflow: hidden;
+}
+.card:hover .quick-actions {
+  transform: translateY(-100%);
+  transition: all ease-in-out 400ms;
+}
+.quick-actions {
+  transform: translateY(100%);
+  transition: all ease-in-out 400ms;
+}
+
+.add-to-cart-btn:hover,
+.quick-view-btn:hover {
+  background-color: rgba(29, 53, 87, 0.9);
+  transition: all ease-in-out 300ms;
+}
+.add-to-cart-btn,
+.quick-view-btn {
+  transition: all ease-in-out 300ms;
 }

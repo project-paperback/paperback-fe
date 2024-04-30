@@ -11,20 +11,16 @@ import {
 } from "./components/Forms";
 import { BookBasketTile } from "./components/bookstore/BookBasketTile";
 import { Experiment } from "./exp";
+import { ContactDetailsPage } from "./pages/ContactDetailsPage";
 
 function App() {
   return (
     <BrowserRouter>
       <div className=" h-screen w-full lg:px-10 ">
         <NavBar />
-
-        <BookBasketTile />
-        {/* <Experiment /> */}
-        <SignUp />
-        <LoginForm />
-        <ContactForm />
-        <ChangePassword />
-        <ChangeAccountDetails />
+        {/* <BookBasketTile /> */}
+        <Experiment />
+        {/* <ContactDetailsPage /> */}
       </div>
     </BrowserRouter>
   );

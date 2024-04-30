@@ -36,7 +36,6 @@ export function IncreaseDecreaseBookQty(props) {
             className={"outline-none w-[40px] h-[30px]  text-center"}
             maxLength={"2"}
             value={props.qty}
-            type="number"
             onChange={(e) => {
               props.inputQty(e);
             }}

@@ -109,9 +109,9 @@ export function SignUp() {
     </form>
   );
 }
-export function ChangePassword() {
+export function ChangePassword(props) {
   return (
-    <form className="border-[10px] lg:border-[20px] border-[#023047] p-2 lg:p-[5rem] flex flex-col items-center gap-[2rem] ">
+    <form {...props}>
       <h3 className="text-2xl font-bold text-center">
         Change account password
       </h3>
@@ -154,9 +154,9 @@ export function ChangePassword() {
   );
 }
 
-export function ChangeAccountDetails() {
+export function ChangeAccountDetails(props) {
   return (
-    <form className="border-[10px] lg:border-[20px] border-[#023047] p-[2rem] lg:p-[5rem] flex flex-col items-center lg:gap-[2rem] ">
+    <form {...props}>
       <h3 className="text-2xl font-bold mb-[2rem] lg:mb-0">
         Change user details
       </h3>

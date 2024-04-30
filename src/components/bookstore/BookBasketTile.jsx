@@ -7,6 +7,7 @@ export function BookBasketTile(props) {
 
   const increaseQty = () => {
     setQty((prevQty) => Number(prevQty) + 1); // Use functional update to ensure correct previous state
+    // setQty(++qty);
   };
 
   const decreaseQty = () => {

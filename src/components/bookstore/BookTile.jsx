@@ -1,25 +1,27 @@
-const BookTile = () => {
+const BookTile = (props) => {
+  console.log(props.imageLinks);
   return (
-    <div className="bg-white w-[10rem] h-[20rem] card-container text-center text-[1.2rem] flex flex-col justify-between">
-      <div className="bg-gray-200 bg-opacity-[0.7] overflow-hidden relative">
-        <figure className="px-[2rem] py-[1rem]">
-          <img
-            className="w-auto h-[8.5rem] m-auto shadow-sm shadow-gray-700"
-            src="https://i.pinimg.com/564x/2a/15/90/2a1590bdd52d010b16de2984d18a875c.jpg"
-            alt=""
-          />
-        </figure>
-        <div className="absolute w-full h-[3rem] bg-white bg-opacity-[.8] bottom-0 flex items-center justify-center quick-view-container">
-          <p>Quick View</p>
+    <div className="card">
+      {/* Image container start */}
+      <div className="image-container relative">
+        <img src={props.imageLinks[0]} alt="" />
+        <div className="quick-actions bg-slate-300  w-full flex flex-col gap-2 p-2 absolute">
+          <div className="py-1 text-center bg-[#023047] text-white quick-view-btn">
+            <button>Quick View</button>
+          </div>
+          <div className="py-1 text-center bg-[#023047] text-white add-to-cart-btn">
+            <button>Add to basket</button>
+          </div>
         </div>
       </div>
-      <div className="">
-        <h2>Book Title</h2>
-        <p>£20.00</p>
+      {/* Image container end */}
+      {/* Info book container start */}
+      <div className="book-info-card py-4 text-center flex  flex-col gap-2">
+        <h2 className="line-clamp-1 text-sm">{props.title}</h2>
+        <p className="line-clamp-1 text-xs">{props.authors}</p>
+        <p className="libre-baskerville-regular">£{props.price.toFixed(2)}</p>
       </div>
-      <button className="bg-[#023047] add-to-cart-btn h-[3rem] text-white">
-        Add To Cart
-      </button>
+      {/* Info book container  end*/}
     </div>
   );
 };
