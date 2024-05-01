@@ -100,7 +100,7 @@ h4 {
   .gallery-grid {
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: minmax(200px, 400px);
+    grid-template-columns: minmax(150px, 300px);
   }
   .card img {
     aspect-ratio: ;
