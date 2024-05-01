@@ -6,7 +6,7 @@ export function Experiment() {
     "https://paperback-vy73.onrender.com/api/books"
   );
   return (
-    <div className="gallery-grid w-[60%]">
+    <div className="gallery-grid  ">
       {" "}
       {isPending ? (
         <p>Pending</p>

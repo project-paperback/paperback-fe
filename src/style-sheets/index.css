@@ -51,8 +51,8 @@ h4 {
 
 .gallery-grid {
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
 }
 
 .book-info-card {
@@ -79,6 +79,12 @@ h4 {
   transform: translateY(100%);
   transition: all ease-in-out 400ms;
 }
+.add-to-cart-btn {
+  opacity: 0;
+}
+.card:hover .add-to-cart-btn {
+  opacity: 1;
+}
 
 .add-to-cart-btn:hover,
 .quick-view-btn:hover {
@@ -88,4 +94,16 @@ h4 {
 .add-to-cart-btn,
 .quick-view-btn {
   transition: all ease-in-out 300ms;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: minmax(200px, 400px);
+  }
+  .card img {
+    aspect-ratio: ;
+    object-fit: cover; /*prevents images from stretch*/
+  }
 }
