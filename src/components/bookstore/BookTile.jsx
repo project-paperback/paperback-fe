@@ -1,15 +1,19 @@
 const BookTile = (props) => {
-  console.log(props.imageLinks);
   return (
-    <div className="card">
+    <div className="card" id={props.bookId}>
       {/* Image container start */}
       <div className="image-container relative">
         <div className="px-10 py-4 bg-gray-100">
           <img src={props.imageLinks[0]} alt="" className="shadow-xl" />
         </div>
         <div className="quick-actions bg-white bg-opacity-[.8] w-full flex flex-col gap-2 p-2 absolute">
-          <div className="py-1 text-center">
-            <a href="">Quick View</a>
+          <div className="py-1 flex justify-center items-center h-[4rem]">
+            <a
+              href=""
+              className="hover:opacity-[0.6] transition-all duration-[200ms]"
+            >
+              Quick View
+            </a>
           </div>
         </div>
       </div>

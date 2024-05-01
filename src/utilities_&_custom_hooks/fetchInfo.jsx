@@ -1,23 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export function useFetchData(url, id) {
-  const [data, setData] = useState(null);
+export function useFetchData(url, id, pageNumber) {
+  const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
-
   useEffect(() => {
-    const getData = async () => {
+    const fetchData = async () => {
       try {
-        const request = await axios.get(id ? `${url}/${id}` : url);
-        setData(request.data);
+        const apiUrl = id ? `${url}/${id}` : `${url}?page_number=${pageNumber}`;
+        const response = await axios.get(apiUrl);
+        setData(response.data);
         setIsPending(false);
       } catch (error) {
         setError(error);
         setIsPending(false);
       }
     };
-    getData();
-  }, [url, id]);
+
+    fetchData();
+  }, [url, id, pageNumber]);
   return { data, isPending, error };
 }
