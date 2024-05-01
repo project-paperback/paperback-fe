@@ -47,7 +47,7 @@ h4 {
   color: #023047;
 }
 
-/* Grid  gallery*/
+/* Grids*/
 
 .gallery-grid {
   display: grid;
@@ -55,6 +55,19 @@ h4 {
   grid-template-columns: repeat(4, minmax(200px, 1fr));
 }
 
+.bookstore-grid {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-gap: 2rem;
+}
+.bookstore-grid .filters {
+  grid-row: span 2;
+}
+
+.bookstore-grid .pagination {
+  height: 50rem;
+}
+/* Grids end */
 .book-info-card {
   height: ;
 }
