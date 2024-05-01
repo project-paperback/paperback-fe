@@ -10,7 +10,9 @@ export function useFetchData(url, id, pageNumber) {
       try {
         const apiUrl = id ? `${url}/${id}` : `${url}?page_number=${pageNumber}`;
         const response = await axios.get(apiUrl);
-        setData(response.data);
+        const data = response.data.books;
+        setData(data);
+
         setIsPending(false);
       } catch (error) {
         setError(error);
@@ -20,5 +22,6 @@ export function useFetchData(url, id, pageNumber) {
 
     fetchData();
   }, [url, id, pageNumber]);
+
   return { data, isPending, error };
 }
