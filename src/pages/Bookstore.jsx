@@ -1,9 +1,9 @@
 import { useRef } from "react";
-import { usePagination } from "./General";
-import { IconArrowLeftCircle, IconArrowRightCircle } from "./components/Icons";
-import BookTile from "./components/bookstore/BookTile";
+import { usePagination } from "../General";
+import { IconArrowLeftCircle, IconArrowRightCircle } from "../components/Icons";
+import BookTile from "../components/bookstore/BookTile";
 
-import { useFetchData } from "./utilities_&_custom_hooks/fetchInfo";
+import { useFetchData } from "../utilities_&_custom_hooks/fetchInfo";
 export function Experiment() {
   const topRef = useRef(null);
 
@@ -53,7 +53,7 @@ export function Experiment() {
           {isPending ? (
             <p>Pending</p>
           ) : (
-            data.map((book) => (
+            data.books.map((book) => (
               <BookTile
                 title={book.title}
                 imageLinks={book.imageLinks}
