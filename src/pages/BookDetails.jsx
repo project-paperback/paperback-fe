@@ -14,15 +14,15 @@ export function BookDetails() {
       {isPending ? (
         <p>Loading book details...</p>
       ) : (
-        <div className="container  flex flex-col lg:flex-row gap-6">
-          <div className="book-detail-img bg-gray-100 w-[40%] px-[5rem] py-[1rem] ">
+        <div className="container  flex flex-col lg:flex-row gap-6 mx-auto ">
+          <div className="book-detail-img bg-gray-100 lg:w-[40%] px-[5rem] py-[1rem] mx-auto w-[80%]">
             <img
               src={data.book.imageLinks[0]}
               alt=""
               className="mx-[1rem] my-[1rem] shadow-xl shadow-gray-400"
             />
           </div>
-          <div className=" w-[50%] flex flex-col gap-6">
+          <div className=" w-[50%] flex flex-col gap-6 mx-auto lg:mx-0">
             <h1 className="text-2xl">{data.book.title}</h1>
             <p>£{data.book.price.toFixed(2)}</p>
 
