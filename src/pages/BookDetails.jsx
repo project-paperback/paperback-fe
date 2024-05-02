@@ -14,7 +14,7 @@ export function BookDetails() {
       {isPending ? (
         <p>Loading book details...</p>
       ) : (
-        <div className="container bg-cyan-200 flex gap-6">
+        <div className="container  flex flex-col lg:flex-row gap-6">
           <div className="book-detail-img bg-gray-100 w-[40%] px-[5rem] py-[1rem] ">
             <img
               src={data.book.imageLinks[0]}
@@ -22,9 +22,18 @@ export function BookDetails() {
               className="mx-[1rem] my-[1rem] shadow-xl shadow-gray-400"
             />
           </div>
-          <div className="bg-red-200 w-full">
+          <div className=" w-[50%] flex flex-col gap-6">
             <h1 className="text-2xl">{data.book.title}</h1>
             <p>£{data.book.price.toFixed(2)}</p>
+
+            <button className=" text-center bg-[#023047] text-white w-[60%] mx-auto  hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3">
+              Add to basket
+            </button>
+
+            <div className="flex flex-col gap-3">
+              <h3>Synopsis</h3>
+              <p className="line-clamp-[8]">{data.book.description}</p>
+            </div>
           </div>
         </div>
       )}
