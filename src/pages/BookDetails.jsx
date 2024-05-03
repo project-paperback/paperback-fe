@@ -12,7 +12,9 @@ export function BookDetails() {
   return (
     <div>
       {isPending ? (
-        <p>Loading book details...</p>
+        <div className="absolute top-0  w-full h-full bg-white flex justify-center content-center">
+          <span className="loading loading-spinner loading-lg "></span>
+        </div>
       ) : (
         <div className="flex flex-col gap-5">
           <div className="text-sm w-full  ">

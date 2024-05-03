@@ -21,6 +21,7 @@ export function Experiment() {
     id,
     pageNumber
   );
+
   if (!data) {
     return (
       <div className="flex flex-col">
@@ -51,7 +52,9 @@ export function Experiment() {
         <div className="gallery-grid justify-center">
           {" "}
           {isPending ? (
-            <p>Pending</p>
+            <div className="absolute top-0  w-full h-full bg-white flex justify-center content-center">
+              <span className="loading loading-spinner loading-lg "></span>
+            </div>
           ) : (
             data.books.map((book) => (
               <BookTile
