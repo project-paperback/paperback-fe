@@ -19,14 +19,14 @@ export function BookDetails() {
             <img
               src={data.book.imageLinks[0]}
               alt=""
-              className="mx-[1rem] my-[1rem] shadow-xl shadow-gray-400"
+              className="lg:mx-[1rem] my-[1rem] shadow-xl shadow-gray-400 mx-auto"
             />
           </div>
-          <div className=" w-[50%] flex flex-col gap-6 mx-auto lg:mx-0">
+          <div className=" w-[80%] lg:w-[50%] flex flex-col gap-6 mx-auto lg:mx-0">
             <h1 className="text-2xl">{data.book.title}</h1>
             <p>£{data.book.price.toFixed(2)}</p>
 
-            <button className=" text-center bg-[#023047] text-white w-[60%] mx-auto  hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3">
+            <button className=" text-center bg-[#023047] text-white w-full lg:w-[60%] mx-auto  hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3">
               Add to basket
             </button>
 
