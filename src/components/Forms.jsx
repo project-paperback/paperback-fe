@@ -8,12 +8,12 @@ import {
   IconSettingsOuline,
 } from "./Icons";
 
-export function LoginForm() {
+export function LoginForm(props) {
   return (
-    <form className=" border-[#023047] py-8 lg:p-[5rem] flex flex-col items-center gap-[2rem] border-[10px] lg:border-[20px]   lg:gap-10">
-      <h3 className="text-2xl font-bold">Log In</h3>
+    <form className={props.className}>
+      <h3 className="text-2xl font-bold roboto-regular">Log In</h3>
 
-      <div className="flex flex-col gap-8 lg:gap-[4rem] w-[70%]">
+      <div className="flex flex-col gap-[3rem] ">
         <InputField
           autoComplete={"off"}
           placeholder={"Email"}
@@ -21,6 +21,10 @@ export function LoginForm() {
           className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
+          onChange={(e) => {
+            let emailVal = e.target.value;
+            props.setEmail(emailVal);
+          }}
         />
         <InputField
           autoComplete={"off"}
@@ -29,18 +33,32 @@ export function LoginForm() {
           className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
+          onChange={(e) => {
+            let passValue = e.target.value;
+            props.setPassword(passValue);
+          }}
         />
-        <button className="hover:opacity-[0.6] transition-all duration-[200ms]">
-          Continue
-        </button>
       </div>
+      <button
+        className="hover:opacity-[0.6] transition-all duration-[200ms]"
+        onClick={(e) => {
+          e.preventDefault();
+          props.handleLogIn();
+        }}
+      >
+        Continue
+      </button>
       <div className="flex flex-col w-full">
         <div className="divider">OR</div>
       </div>
-      <NavLink className={"flex items-center gap-[0.5rem] create-account-link"}>
-        <Icon032Books height={"2rem"} width={"1.4rem"} />
-        <p>Create new account</p>
-      </NavLink>
+      <div className="flex justify-center">
+        <NavLink
+          className={"flex items-center gap-[0.5rem] create-account-link "}
+        >
+          <Icon032Books height={"2rem"} width={"1.4rem"} />
+          <p>Create new account</p>
+        </NavLink>
+      </div>
     </form>
   );
 }

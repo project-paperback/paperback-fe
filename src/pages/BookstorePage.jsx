@@ -4,7 +4,7 @@ import { IconArrowLeftCircle, IconArrowRightCircle } from "../components/Icons";
 import BookTile from "../components/bookstore/BookTile";
 
 import { useFetchData } from "../utilities_&_custom_hooks/fetchInfo";
-export function Experiment() {
+export function BookstorePage() {
   const topRef = useRef(null);
 
   const scrollToTop = () => {
@@ -21,7 +21,6 @@ export function Experiment() {
     id,
     pageNumber
   );
-
   if (!data) {
     return (
       <div className="flex flex-col">
@@ -47,12 +46,12 @@ export function Experiment() {
     );
   } else {
     return (
-      <div>
+      <div className="relative">
         <h2 ref={topRef}>Our Bookstore</h2>
         <div className="gallery-grid justify-center">
           {" "}
           {isPending ? (
-            <div className="absolute top-0  w-full h-full bg-white flex justify-center content-center">
+            <div className="absolute top-0 bottom-0  w-full h-[80vh] bg-white flex justify-center content-center">
               <span className="loading loading-spinner loading-lg "></span>
             </div>
           ) : (
@@ -84,6 +83,7 @@ export function Experiment() {
                 <IconArrowLeftCircle className={"h-7 w-7"} />
               </button>
             )}
+
             <p>Page {pageNumber}</p>
             <button
               onClick={(e) => {

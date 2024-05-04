@@ -1,7 +1,7 @@
 import { Link, NavLink, useParams } from "react-router-dom";
 import { useFetchData } from "../utilities_&_custom_hooks/fetchInfo";
 
-export function BookDetails() {
+export function BookDetailsPage() {
   const pageNumber = "";
   const { book_id } = useParams();
   const { data, isPending, error } = useFetchData(

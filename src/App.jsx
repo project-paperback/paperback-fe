@@ -5,23 +5,25 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { Experiment } from "./pages/Bookstore";
-import { Home } from "./pages/Home";
+import { BookstorePage } from "./pages/BookstorePage";
+import { HomePage } from "./pages/HomePage";
 import { Layout } from "./Layout";
-import { Contact } from "./pages/Contact";
-import { BookDetails } from "./pages/BookDetails";
+import { ContactUsPage } from "./pages/ContactUsPage";
+import { BookDetailsPage } from "./pages/BookDetailsPage";
+import { SignInPage } from "./pages/SignInPage";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="bookstore" element={<Experiment />} />
-        <Route path="contact" element={<Contact />} />
+        <Route index element={<HomePage />} />
+        <Route path="bookstore" element={<BookstorePage />} />
+        <Route path="contact" element={<ContactUsPage />} />
         <Route
           path="bookstore/book-details/:book_id"
-          element={<BookDetails />}
+          element={<BookDetailsPage />}
         />
+        <Route path="sign_in" element={<SignInPage />} />
       </Route>
     )
   );
