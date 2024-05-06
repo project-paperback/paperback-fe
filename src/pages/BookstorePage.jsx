@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { usePagination } from "../General";
+import { usePagination } from "../utilities_&_custom_hooks/General";
 import { IconArrowLeftCircle, IconArrowRightCircle } from "../components/Icons";
 import BookTile from "../components/bookstore/BookTile";
 
@@ -55,7 +55,7 @@ export function BookstorePage() {
               <span className="loading loading-spinner loading-lg "></span>
             </div>
           ) : (
-            data.books.map((book) => (
+            data?.books.map((book) => (
               <BookTile
                 title={book.title}
                 imageLinks={book.imageLinks}

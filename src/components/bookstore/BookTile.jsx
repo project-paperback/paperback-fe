@@ -13,9 +13,9 @@ const BookTile = (props) => {
         </div>
         <div className="quick-actions bg-white bg-opacity-[.8] w-full flex flex-col gap-2 p-2 absolute">
           <div className="py-1 flex justify-center items-center h-[4rem]">
-            <NavLink className="hover:opacity-[0.6] transition-all duration-[200ms]">
+            <button className="hover:opacity-[0.6] transition-all duration-[200ms]">
               Quick View
-            </NavLink>
+            </button>
           </div>
         </div>
       </NavLink>

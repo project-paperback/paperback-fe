@@ -1,4 +1,4 @@
-import { Link, NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useFetchData } from "../utilities_&_custom_hooks/fetchInfo";
 
 export function BookDetailsPage() {

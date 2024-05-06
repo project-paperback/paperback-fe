@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 
 export function usePagination() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -11,3 +11,5 @@ export function usePagination() {
   };
   return { pageNumber, handleNextPage, handlePrevPage };
 }
+
+export const TextContext = createContext(null);

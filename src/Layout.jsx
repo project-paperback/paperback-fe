@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./components/nav/NavBar";
 
-export function Layout() {
+export function Layout(props) {
   return (
     <div>
       <header className="lg:px-10">
-        <NavBar />
+        <NavBar setUser={props.setUser} />
       </header>
       <main className="lg:px-10">
         <Outlet />
