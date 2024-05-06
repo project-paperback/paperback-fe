@@ -30,12 +30,12 @@ export function BookDetailsPage() {
               </li>
             </ul>
           </div>
-          <div className="container  flex flex-col lg:flex-row gap-6 mx-auto ">
-            <div className="book-detail-img bg-gray-100 lg:w-[40%] px-[5rem] py-[1rem] mx-auto w-[80%]">
+          <div className="container flex flex-col lg:flex-row gap-6 mx-auto ">
+            <div className=" bg-gray-100 py-5 lg:w-[40%] px-[5rem] mx-auto w-[80%] flex items-center">
               <img
                 src={data.book.imageLinks[0]}
                 alt=""
-                className="lg:mx-[1rem] my-[1rem] shadow-xl shadow-gray-400 mx-auto"
+                className="shadow-xl shadow-gray-400 mx-auto"
               />
             </div>
             <div className=" w-[80%] lg:w-[50%] flex flex-col gap-6 mx-auto lg:mx-0">
