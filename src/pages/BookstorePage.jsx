@@ -67,7 +67,7 @@ export function BookstorePage() {
             ))
           )}
         </div>
-        <div className="flex justify-center items-center bg-red-300 h-9 py-7 ">
+        <div className="flex justify-center items-center  h-9 py-7 ">
           <div className="flex  gap-4">
             {pageNumber === 1 ? (
               <button disabled={true}>

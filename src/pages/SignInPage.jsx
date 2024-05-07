@@ -29,7 +29,7 @@ export function SignInPage(props) {
       <div className="bg-blue-300 item-2 absolute lg:bottom-[-1rem] lg:right-[3rem] bottom-[-1rem] right-[-1rem] z-[-1] lg:z-0"></div>
       <div className=" item-cont">
         <LoginForm
-          className=" border-[#023047] lg:p-[4rem] text-center *:px-5 *:my-3 border-[10px] lg:border-[10px]    bg-white"
+          className=" border-[#023047] lg:p-[4rem] text-center *:px-5  *:my-3 border-[10px] lg:border-[10px]    bg-white"
           setEmail={setEmail}
           setPassword={setPassword}
           handleLogIn={handleLogIn}

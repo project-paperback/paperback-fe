@@ -26,7 +26,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout setUser={setUser} />}>
         {/* <Route index element={<HomePage setUser={setUser} />} /> */}
-        <Route path="/" element={<BookstorePage />} />
+        <Route path="bookstore" element={<BookstorePage />} />
         <Route path="contact" element={<ContactUsPage />} />
         <Route
           path="bookstore/book-details/:book_id"
