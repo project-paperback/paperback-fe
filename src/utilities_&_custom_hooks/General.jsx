@@ -1,5 +1,5 @@
+import axios from "axios";
 import { useState, useEffect, createContext } from "react";
-
 export function usePagination() {
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -11,5 +11,13 @@ export function usePagination() {
   };
   return { pageNumber, handleNextPage, handlePrevPage };
 }
+export function sendToBasket(id) {
+  console.log(id);
+  const sendTo = `https://paperback-vy73.onrender.com/api/add_to_basket`;
+  const productId = id;
+  const sendToBasket = axios
+    .post(sendTo, { productId })
+    .then((data) => console.log(data));
+}
 
-export const TextContext = createContext(null);
+export const UserContext = createContext(null);

@@ -2,12 +2,12 @@ import { useContext, useState } from "react";
 import { LoginForm } from "../components/Forms";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import { TextContext } from "../utilities_&_custom_hooks/General";
+import { UserContext } from "../utilities_&_custom_hooks/General";
 
 export function SignInPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const user = useContext(TextContext);
+  const user = useContext(UserContext);
   const handleLogIn = () => {
     const sendToAutehticate = { email, password };
 

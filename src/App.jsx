@@ -12,7 +12,7 @@ import { ContactUsPage } from "./pages/ContactUsPage";
 import { BookDetailsPage } from "./pages/BookDetailsPage";
 import { SignInPage } from "./pages/SignInPage";
 // Custom Hooks and Utilities
-import { TextContext } from "./utilities_&_custom_hooks/General";
+import { UserContext } from "./utilities_&_custom_hooks/General";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout setUser={setUser} />}>
-        {/* <Route index element={<HomePage setUser={setUser} />} /> */}
+        <Route index element={<HomePage setUser={setUser} />} />
         <Route path="bookstore" element={<BookstorePage />} />
         <Route path="contact" element={<ContactUsPage />} />
         <Route
@@ -42,9 +42,9 @@ function App() {
 
   return (
     <>
-      <TextContext.Provider value={user}>
+      <UserContext.Provider value={user}>
         <RouterProvider router={router} />
-      </TextContext.Provider>
+      </UserContext.Provider>
     </>
   );
 }
