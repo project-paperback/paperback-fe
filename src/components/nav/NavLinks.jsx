@@ -40,7 +40,10 @@ const NavigationLinks = (props) => {
           </Link>
         )}
       </div>
-      <NavLink className="hover:opacity-[0.7]" to="shopping_cart">
+      <NavLink
+        onClick={() => props.setIsOpen(!props.isOpen)}
+        className="hover:opacity-[0.7]"
+      >
         <ShoppingCartOutline height={"1.8rem"} width={"1.8rem"} />
       </NavLink>
     </div>

@@ -48,6 +48,17 @@ h4,
   color: #023047;
 }
 
+/* Side cart menu */
+.side-cart-menu-open {
+  transform: translateX(0%);
+  transition: all ease-in-out 200ms;
+}
+
+.side-cart-menu-closed {
+  transform: translateX(100%);
+  transition: all ease-in-out 200ms;
+}
+
 /* Grids*/
 
 .gallery-grid {
@@ -92,9 +103,7 @@ h4,
 .nav-links a.active {
   opacity: 0.7;
 }
-.book-info-card {
-  height: ;
-}
+
 .card img {
   aspect-ratio: 2/3;
   object-fit: cover; /*prevents images from stretch*/
