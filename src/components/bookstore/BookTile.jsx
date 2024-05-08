@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const BookTile = (props) => {
   return (
@@ -28,7 +28,13 @@ const BookTile = (props) => {
         <p className="line-clamp-1 text-xs">{props.authors}</p>
         <p className="libre-baskerville-regular">£{props.price.toFixed(2)}</p>
         <div className="py-1 text-center bg-[#023047] text-white add-to-cart-btn">
-          <button>Add to basket</button>
+          <button
+            onClick={() => {
+              props.sendToBasket(props.bookId);
+            }}
+          >
+            Add to basket
+          </button>
         </div>
       </div>
       {/* Info book container  end*/}

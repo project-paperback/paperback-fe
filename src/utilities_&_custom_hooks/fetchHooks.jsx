@@ -6,7 +6,7 @@ export function useFetchData(url, id, pageNumber) {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
   let buildUrl = "";
-  console.log(url, id, pageNumber);
+
   if (id) {
     buildUrl = `${url}/${id}`;
   } else if (pageNumber) {

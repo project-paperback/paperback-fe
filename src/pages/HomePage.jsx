@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { TextContext } from "../utilities_&_custom_hooks/General";
+import { UserContext } from "../utilities_&_custom_hooks/General";
 import axios from "axios";
 
 export function HomePage(props) {
-  const salutations = useContext(TextContext);
+  const salutations = useContext(UserContext);
 
   return (
     <div>

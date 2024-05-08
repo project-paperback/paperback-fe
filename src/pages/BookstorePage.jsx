@@ -1,9 +1,13 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePagination } from "../utilities_&_custom_hooks/General";
 import { IconArrowLeftCircle, IconArrowRightCircle } from "../components/Icons";
 import BookTile from "../components/bookstore/BookTile";
 
-import { useFetchData } from "../utilities_&_custom_hooks/fetchInfo";
+import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
+import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
+import { BasketWarningModal } from "../components/SmallComponents";
+import { Navigate } from "react-router-dom";
+
 export function BookstorePage() {
   const topRef = useRef(null);
 
@@ -21,6 +25,10 @@ export function BookstorePage() {
     id,
     pageNumber
   );
+
+  const { itemSent, errorInBasket, sendToBasket, setErrorInBasket } =
+    useSendToBasket();
+
   if (!data) {
     return (
       <div className="flex flex-col">
@@ -47,6 +55,12 @@ export function BookstorePage() {
   } else {
     return (
       <div className="relative">
+        {errorInBasket && (
+          <BasketWarningModal
+            setErrorInBasket={setErrorInBasket}
+            msg={errorInBasket.response?.data?.msg}
+          />
+        )}
         <h2 ref={topRef}>Our Bookstore</h2>
         <div className="gallery-grid justify-center">
           {" "}
@@ -54,8 +68,8 @@ export function BookstorePage() {
             <div className="absolute top-0 bottom-0  w-full h-[80vh] bg-white flex justify-center content-center">
               <span className="loading loading-spinner loading-lg "></span>
             </div>
-          ) : (
-            data?.books.map((book) => (
+          ) : data?.books ? (
+            data.books.map((book) => (
               <BookTile
                 title={book.title}
                 imageLinks={book.imageLinks}
@@ -63,8 +77,11 @@ export function BookstorePage() {
                 price={book.price}
                 key={book._id}
                 bookId={book._id}
+                sendToBasket={sendToBasket}
               />
             ))
+          ) : (
+            <Navigate to={"bookstore"} />
           )}
         </div>
         <div className="flex justify-center items-center  h-9 py-7 ">
