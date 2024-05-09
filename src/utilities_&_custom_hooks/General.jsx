@@ -21,3 +21,8 @@ export function sendToBasket(id) {
 }
 
 export const UserContext = createContext(null);
+
+export function deleteItemFromBasket(id) {
+  const deleteFrom = `https://paperback-vy73.onrender.com/api/remove_from_basket/${id}`;
+  axios.delete(deleteFrom).then(({ data }) => console.log(data.msg));
+}

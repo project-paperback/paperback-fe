@@ -81,3 +81,11 @@ export function BasketWarningModal(props) {
     </div>
   );
 }
+
+export function PurchaseSummary(props) {
+  return (
+    <div>
+      <h2>Order summary</h2>
+    </div>
+  );
+}
