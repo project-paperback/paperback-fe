@@ -31,7 +31,9 @@ export function Layout(props) {
             Close
           </button>
           <button>
-            <Link to={"shopping-cart"}>View Cart</Link>
+            <Link to={"shopping-cart"} onClick={() => setIsOpen(!isOpen)}>
+              View Cart
+            </Link>
           </button>
         </div>
         <Outlet />

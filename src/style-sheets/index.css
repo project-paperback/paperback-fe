@@ -50,11 +50,13 @@ h4,
 
 /* Side cart menu */
 .side-cart-menu-open {
+  z-index: 10;
   transform: translateX(0%);
   transition: all ease-in-out 200ms;
 }
 
 .side-cart-menu-closed {
+  z-index: 10;
   transform: translateX(100%);
   transition: all ease-in-out 200ms;
 }
