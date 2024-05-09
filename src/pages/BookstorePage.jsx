@@ -25,7 +25,23 @@ export function BookstorePage() {
     id,
     pageNumber
   );
+  useEffect(() => {
+    let timer;
 
+    if (isPending) {
+      // Set a timer to clear local storage after 20 seconds
+      timer = setTimeout(() => {
+        // Clear local storage here
+        localStorage.clear(); // Replace 'tokenExpiration' with your key
+        // You can clear other relevant keys or perform logout actions here
+      }, 5000); // 20 seconds (20000 milliseconds)
+    }
+
+    // Clean up function to clear the timer when isPending changes to false
+    return () => {
+      clearTimeout(timer); // Clear the timer if component unmounts or isPending becomes false
+    };
+  }, [isPending]);
   const { itemSent, errorInBasket, sendToBasket, setErrorInBasket } =
     useSendToBasket();
 

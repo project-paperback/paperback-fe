@@ -6,6 +6,7 @@ import axios from "axios";
 
 const NavigationLinks = (props) => {
   const user = useContext(UserContext);
+  console.log(user);
   return (
     <div className="text-lg flex items-center gap-4 *:text-[#023047] *:transition-all *:ease-in *:duration-300 w-fit h-full nav-links">
       <NavLink className={`hover:opacity-[0.7] hidden lg:block`} to="bookstore">
@@ -40,12 +41,12 @@ const NavigationLinks = (props) => {
           </Link>
         )}
       </div>
-      <button
+      <NavLink
         onClick={() => props.setIsOpen(!props.isOpen)}
         className="hover:opacity-[0.7]"
       >
         <ShoppingCartOutline height={"1.8rem"} width={"1.8rem"} />
-      </button>
+      </NavLink>
     </div>
   );
 };
