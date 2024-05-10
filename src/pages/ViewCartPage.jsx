@@ -21,6 +21,12 @@ const ViewCartPage = () => {
     setBooksInData(standing);
   };
   console.log(booksInData);
+  const [qtySums, setQtySums] = useState(0);
+  console.log(qtySums);
+
+  for (let i = 0; i < booksInData.length; i++) {
+    console.log(booksInData[i].price);
+  }
   return (
     <div className="lg:flex flex-col xl:grid grid-cols-[70%_30%] gap-8 2xl:w-[75%] lg:mx-auto mx-10">
       <div className="">
@@ -37,6 +43,8 @@ const ViewCartPage = () => {
               price={book.price}
               _id={book._id}
               deleteFromFront={deleteFromFront}
+              qtySums={qtySums}
+              setQtySums={setQtySums}
             />
           );
         })}

@@ -4,6 +4,8 @@ import { IncreaseDecreaseBookQty } from "../SmallComponents";
 import { deleteItemFromBasket } from "../../utilities_&_custom_hooks/General";
 
 export function BookBasketTile(props) {
+  const value = document.querySelector("#p-tag").textContent;
+  console.log(value);
   let [qty, setQty] = useState(1);
 
   useEffect(() => {
@@ -16,6 +18,7 @@ export function BookBasketTile(props) {
 
   const decreaseQty = () => {
     if (qty > 1) {
+      props.setQtySums();
       setQty((prevQty) => Number(prevQty) - 1); // Ensure qty does not go below 1
     }
   };
@@ -46,9 +49,10 @@ export function BookBasketTile(props) {
           decreaseQty={decreaseQty}
           inputQty={inputQty}
           className={"w-fit mx-auto lg:mx-0"}
+          setQtySums={props.setQtySums}
         />
         {/* ===================*/}
-        <p>£{(qty * props.price).toFixed(2)}</p>
+        <p id="p-tag">£{(qty * props.price).toFixed(2)}</p>
       </div>
       <button
         className="mb-auto ml-auto absolute right-0 top-0 mr-2"
