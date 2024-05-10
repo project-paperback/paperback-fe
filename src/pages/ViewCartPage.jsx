@@ -22,8 +22,11 @@ const ViewCartPage = () => {
   };
   console.log(booksInData);
   return (
-    <div className="">
+    <div className="lg:flex flex-col xl:grid grid-cols-[70%_30%] gap-8 2xl:w-[75%] lg:mx-auto mx-10">
       <div className="">
+        <div className="border-b-[1px] border-[#023047] py-3">
+          <h2 className="text-[1.5rem]">My cart</h2>
+        </div>
         {booksInData.map((book) => {
           return (
             <BookBasketTile
@@ -38,8 +41,8 @@ const ViewCartPage = () => {
           );
         })}
       </div>
-      <div className="">
-        <div className="">
+      <div className="bg-blue-100 2xl:relative">
+        <div className="xl:fixed">
           <PurchaseSummary />
         </div>
       </div>

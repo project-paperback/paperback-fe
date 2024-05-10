@@ -90,16 +90,23 @@ h4,
 .item-1 {
   width: 5rem;
   height: 5rem;
-  /* position: absolute; */
-  /* top: 3rem;
-  left: 3rem; */
 }
 .item-2 {
   width: 5rem;
   height: 5rem;
-  /* position: absolute; */
-  /* bottom: -1rem;
-  right: 3rem; */
+}
+
+.basket-tile-item {
+  grid-template-columns: repeat(2, 1fr);
+  padding-block: 2rem;
+  border-bottom: 1px solid #023047;
+}
+.grid-cols-inner-info {
+  grid-template-columns: 10rem 9rem;
+}
+.basket-tile-item img {
+  aspect-ratio: 2/3;
+  object-fit: cover;
 }
 /* Grids end */
 .nav-links a.active {
