@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { IconClose } from "../Icons";
 import { IncreaseDecreaseBookQty } from "../SmallComponents";
 import { deleteItemFromBasket } from "../../utilities_&_custom_hooks/General";
+import axios from "axios";
 
 export function BookBasketTile(props) {
   let [qty, setQty] = useState(1);
@@ -25,16 +26,6 @@ export function BookBasketTile(props) {
     setQty(value >= 1 ? value : 1);
   };
 
-  const [total, setTotal] = useState(0);
-  console.log(total);
-
-  //  use ref for total summary
-
-  // const pRef = useRef(null);
-  // useEffect(() => {
-  //   console.log(pRef?.current?.innerText);
-  // }, [pRef]);
-
   //update summary using backend values
 
   return (
@@ -57,7 +48,8 @@ export function BookBasketTile(props) {
           increaseQty={increaseQty}
           decreaseQty={decreaseQty}
           inputQty={inputQty}
-          _id={props._id}
+          changeQty={props.changeQty}
+          setChangeQty={props.setChangeQty}
           product={props.product}
           className={"w-fit mx-auto lg:mx-0"}
         />
@@ -66,9 +58,16 @@ export function BookBasketTile(props) {
       </div>
       <button
         className="mb-auto ml-auto absolute right-0 top-0 mr-2"
-        onClick={() => {
-          deleteItemFromBasket(props.product);
-          props.deleteFromFront(props.product);
+        onClick={async () => {
+          try {
+            await axios.delete(
+              `https://paperback-vy73.onrender.com/api/remove_from_basket/${props.product}`
+            );
+            props.setChangeQty(() => !props.changeQty);
+            props.deleteFromFront(props.product);
+          } catch (error) {
+            console.log(error);
+          }
         }}
       >
         <IconClose />

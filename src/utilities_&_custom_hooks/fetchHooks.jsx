@@ -33,13 +33,13 @@ export function useFetchData(url, id, pageNumber) {
   return { data, isPending, error };
 }
 
-export function useFetchBasket(url) {
+export function useFetchBasket(url, changeQty) {
   const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
     axios.get(url).then(({ data }) => setData(data.basketItems));
-  }, [url]);
+  }, [url, changeQty]);
 
   return { data, isPending, error };
 }

@@ -5,16 +5,40 @@ import { useFetchBasket } from "../utilities_&_custom_hooks/fetchHooks";
 import { BookBasketTile } from "../components/bookstore/BookBasketTile";
 import { PurchaseSummary } from "../components/SmallComponents";
 
-const ViewCartPage = () => {
-  const { data, isPending, error } = useFetchBasket(
-    "https://paperback-vy73.onrender.com/api/basket"
-  );
+import axios from "axios";
 
+const ViewCartPage = () => {
+  const [changeQty, setChangeQty] = useState(false);
+  let [total, setTotal] = useState(0);
+  const { data, isPending, error } = useFetchBasket(
+    "https://paperback-vy73.onrender.com/api/basket",
+    changeQty
+  );
   const [booksInData, setBooksInData] = useState([]);
+
   useEffect(() => {
     const arr = Array.from(data);
     setBooksInData(arr);
-  }, [data]);
+  }, [data, changeQty]);
+
+  useEffect(() => {
+    const myData = axios
+      .get("https://paperback-vy73.onrender.com/api/basket")
+      .then(({ data }) => {
+        const basket = data.basketItems;
+        const values = basket.map((book) => book.price * book.quantity);
+        console.log(values, "VALUEEEES");
+        if (values.length > 0) {
+          setTotal(() =>
+            values.reduce(
+              (aggregate, current) => (aggregate = current + aggregate)
+            )
+          );
+        } else if (values.length === 0) setTotal(0);
+      });
+  }, [changeQty, booksInData]);
+
+  console.log(total, "TOTAAAAAAAAAL!!!!!");
 
   const deleteFromFront = (toDel) => {
     const standing = booksInData.filter((book) => book.product != toDel);
@@ -23,9 +47,11 @@ const ViewCartPage = () => {
   // const summary = () => {
   //   return
   // }
-  for (let i = 0; i < booksInData.length; i++) {
-    console.log(booksInData[i].price);
-  }
+  useEffect(() => {
+    for (let i = 0; i < booksInData.length; i++) {
+      console.log(booksInData[i].price * booksInData[i].quantity);
+    }
+  }, [booksInData]);
   return (
     <div className="lg:flex flex-col xl:grid grid-cols-[70%_30%] gap-8 2xl:w-[75%] lg:mx-auto mx-10">
       <div className="">
@@ -40,7 +66,8 @@ const ViewCartPage = () => {
               qty={book.quantity}
               description={book.description}
               price={book.price}
-              _id={book._id}
+              changeQty={changeQty}
+              setChangeQty={setChangeQty}
               deleteFromFront={deleteFromFront}
             />
           );

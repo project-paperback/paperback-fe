@@ -33,6 +33,7 @@ export function IncreaseDecreaseBookQty(props) {
                 "https://paperback-vy73.onrender.com/api/basket/decrease_qty_by_one",
                 { productId: props.product }
               );
+              props.setChangeQty(() => !props.changeQty);
             }}
           >
             <IconMinus />
@@ -54,6 +55,7 @@ export function IncreaseDecreaseBookQty(props) {
                 "https://paperback-vy73.onrender.com/api/basket/increase_qty_by_one",
                 { productId: props.product }
               );
+              props.setChangeQty(() => !props.changeQty);
             }}
           >
             <IconPlus />
