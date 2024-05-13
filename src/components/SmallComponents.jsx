@@ -1,3 +1,4 @@
+import axios from "axios";
 import { IconMinus, IconPlus } from "./Icons";
 
 export function InputField(props) {
@@ -28,6 +29,10 @@ export function IncreaseDecreaseBookQty(props) {
             onClick={(e) => {
               e.preventDefault();
               props.decreaseQty();
+              axios.patch(
+                "https://paperback-vy73.onrender.com/api/basket/decrease_qty_by_one",
+                { productId: props.product }
+              );
             }}
           >
             <IconMinus />
@@ -45,6 +50,10 @@ export function IncreaseDecreaseBookQty(props) {
             onClick={(e) => {
               e.preventDefault();
               props.increaseQty();
+              axios.patch(
+                "https://paperback-vy73.onrender.com/api/basket/increase_qty_by_one",
+                { productId: props.product }
+              );
             }}
           >
             <IconPlus />

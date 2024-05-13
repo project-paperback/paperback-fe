@@ -1,30 +1,41 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IconClose } from "../Icons";
 import { IncreaseDecreaseBookQty } from "../SmallComponents";
 import { deleteItemFromBasket } from "../../utilities_&_custom_hooks/General";
 
 export function BookBasketTile(props) {
   let [qty, setQty] = useState(1);
-
+  // const pRef = useRef(null);
   useEffect(() => {
     setQty(props.qty);
   }, []);
   const increaseQty = () => {
-    setQty((prevQty) => Number(prevQty) + 1); // Use functional update to ensure correct previous state
-    // setQty(++qty);
+    setQty((prevQty) => Number(prevQty) + 1);
+    // console.log(pRef?.current?.innerText);
   };
 
   const decreaseQty = () => {
     if (qty > 1) {
-      props.setQtySums();
-      setQty((prevQty) => Number(prevQty) - 1); // Ensure qty does not go below 1
+      setQty((prevQty) => Number(prevQty) - 1);
     }
   };
 
   const inputQty = (e) => {
     const value = parseInt(e.target.value);
-    setQty(value >= 1 ? value : 1); // Update qty only if input value is valid
+    setQty(value >= 1 ? value : 1);
   };
+
+  const [total, setTotal] = useState(0);
+  console.log(total);
+
+  //  use ref for total summary
+
+  // const pRef = useRef(null);
+  // useEffect(() => {
+  //   console.log(pRef?.current?.innerText);
+  // }, [pRef]);
+
+  //update summary using backend values
 
   return (
     <div className="lg:grid basket-tile-item relative   flex flex-col text-center lg:text-left my-2 ">
@@ -34,7 +45,7 @@ export function BookBasketTile(props) {
         </div>
         <div className="lg:flex lg:flex-col lg:gap-4 ">
           <h2>{props.description}</h2>
-          <p>£{props.price}</p>{" "}
+          <p>£{props.price.toFixed(2)}</p>{" "}
         </div>
       </div>
 
@@ -46,6 +57,8 @@ export function BookBasketTile(props) {
           increaseQty={increaseQty}
           decreaseQty={decreaseQty}
           inputQty={inputQty}
+          _id={props._id}
+          product={props.product}
           className={"w-fit mx-auto lg:mx-0"}
         />
         {/* ===================*/}
