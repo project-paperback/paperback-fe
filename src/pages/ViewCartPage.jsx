@@ -20,10 +20,9 @@ const ViewCartPage = () => {
     const standing = booksInData.filter((book) => book.product != toDel);
     setBooksInData(standing);
   };
-  console.log(booksInData);
-  const [qtySums, setQtySums] = useState(0);
-  console.log(qtySums);
-
+  // const summary = () => {
+  //   return
+  // }
   for (let i = 0; i < booksInData.length; i++) {
     console.log(booksInData[i].price);
   }
@@ -43,8 +42,6 @@ const ViewCartPage = () => {
               price={book.price}
               _id={book._id}
               deleteFromFront={deleteFromFront}
-              qtySums={qtySums}
-              setQtySums={setQtySums}
             />
           );
         })}
