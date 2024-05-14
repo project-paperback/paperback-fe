@@ -1,29 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import { IconClose } from "../Icons";
 import { IncreaseDecreaseBookQty } from "../SmallComponents";
-import { deleteItemFromBasket } from "../../utilities_&_custom_hooks/General";
 import axios from "axios";
 
 export function BookBasketTile(props) {
-  let [qty, setQty] = useState(1);
+  let [quantity, setQuantity] = useState(1);
   // const pRef = useRef(null);
   useEffect(() => {
-    setQty(props.qty);
+    setQuantity(props.qty);
   }, []);
   const increaseQty = () => {
-    setQty((prevQty) => Number(prevQty) + 1);
+    setQuantity((prevQty) => Number(prevQty) + 1);
     // console.log(pRef?.current?.innerText);
   };
 
   const decreaseQty = () => {
-    if (qty > 1) {
-      setQty((prevQty) => Number(prevQty) - 1);
+    if (quantity > 1) {
+      setQuantity((prevQty) => Number(prevQty) - 1);
     }
   };
 
   const inputQty = (e) => {
     const value = parseInt(e.target.value);
-    setQty(value >= 1 ? value : 1);
+    setQuantity(value >= 1 ? value : 1);
   };
 
   //update summary using backend values
@@ -42,9 +41,9 @@ export function BookBasketTile(props) {
 
       {/* ===================== */}
       <div className="lg:ml-8 lg:mt-0 mt-3 flex  flex-col lg:flex-row lg:gap-5 gap-2 lg:justify-between lg:w-[11rem] ">
-        {/* Magic qty box*/}
+        {/* Magic quantity box*/}
         <IncreaseDecreaseBookQty
-          qty={qty}
+          quantity={props.qty}
           increaseQty={increaseQty}
           decreaseQty={decreaseQty}
           inputQty={inputQty}
@@ -54,7 +53,7 @@ export function BookBasketTile(props) {
           className={"w-fit mx-auto lg:mx-0"}
         />
         {/* ===================*/}
-        <p id="p-tag">£{(qty * props.price).toFixed(2)}</p>
+        <p id="p-tag">£{(props.qty * props.price).toFixed(2)}</p>
       </div>
       <button
         className="mb-auto ml-auto absolute right-0 top-0 mr-2"
@@ -64,7 +63,6 @@ export function BookBasketTile(props) {
               `https://paperback-vy73.onrender.com/api/remove_from_basket/${props.product}`
             );
             props.setChangeQty(() => !props.changeQty);
-            props.deleteFromFront(props.product);
           } catch (error) {
             console.log(error);
           }

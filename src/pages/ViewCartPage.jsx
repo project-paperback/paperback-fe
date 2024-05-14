@@ -27,7 +27,6 @@ const ViewCartPage = () => {
       .then(({ data }) => {
         const basket = data.basketItems;
         const values = basket.map((book) => book.price * book.quantity);
-        console.log(values, "VALUEEEES");
         if (values.length > 0) {
           setTotal(() =>
             values.reduce(
@@ -40,13 +39,6 @@ const ViewCartPage = () => {
 
   console.log(total, "TOTAAAAAAAAAL!!!!!");
 
-  const deleteFromFront = (toDel) => {
-    const standing = booksInData.filter((book) => book.product != toDel);
-    setBooksInData(standing);
-  };
-  // const summary = () => {
-  //   return
-  // }
   useEffect(() => {
     for (let i = 0; i < booksInData.length; i++) {
       console.log(booksInData[i].price * booksInData[i].quantity);
@@ -68,7 +60,6 @@ const ViewCartPage = () => {
               price={book.price}
               changeQty={changeQty}
               setChangeQty={setChangeQty}
-              deleteFromFront={deleteFromFront}
             />
           );
         })}

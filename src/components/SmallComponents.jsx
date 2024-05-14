@@ -26,10 +26,10 @@ export function IncreaseDecreaseBookQty(props) {
         <div className=" flex items-center border-[2px] border-[#023047] ">
           <button
             className="h-full w-full *:stroke-[#023047]   px-[5px]"
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
               props.decreaseQty();
-              axios.patch(
+              await axios.patch(
                 "https://paperback-vy73.onrender.com/api/basket/decrease_qty_by_one",
                 { productId: props.product }
               );
@@ -41,17 +41,17 @@ export function IncreaseDecreaseBookQty(props) {
           <input
             className={"outline-none w-[40px] h-[30px]  text-center"}
             maxLength={"2"}
-            value={props.qty}
+            value={props.quantity}
             onChange={(e) => {
               props.inputQty(e);
             }}
           />
           <button
             className="h-full w-full *:stroke-[#023047]  px-[5px]"
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
               props.increaseQty();
-              axios.patch(
+              await axios.patch(
                 "https://paperback-vy73.onrender.com/api/basket/increase_qty_by_one",
                 { productId: props.product }
               );
