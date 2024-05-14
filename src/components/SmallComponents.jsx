@@ -26,13 +26,14 @@ export function IncreaseDecreaseBookQty(props) {
         <div className=" flex items-center border-[2px] border-[#023047] ">
           <button
             className="h-full w-full *:stroke-[#023047]   px-[5px]"
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
               props.decreaseQty();
-              axios.patch(
+              await axios.patch(
                 "https://paperback-vy73.onrender.com/api/basket/decrease_qty_by_one",
                 { productId: props.product }
               );
+              props.setChangeQty(() => !props.changeQty);
             }}
           >
             <IconMinus />
@@ -40,20 +41,21 @@ export function IncreaseDecreaseBookQty(props) {
           <input
             className={"outline-none w-[40px] h-[30px]  text-center"}
             maxLength={"2"}
-            value={props.qty}
+            value={props.quantity}
             onChange={(e) => {
               props.inputQty(e);
             }}
           />
           <button
             className="h-full w-full *:stroke-[#023047]  px-[5px]"
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
               props.increaseQty();
-              axios.patch(
+              await axios.patch(
                 "https://paperback-vy73.onrender.com/api/basket/increase_qty_by_one",
                 { productId: props.product }
               );
+              props.setChangeQty(() => !props.changeQty);
             }}
           >
             <IconPlus />
@@ -93,8 +95,23 @@ export function BasketWarningModal(props) {
 
 export function PurchaseSummary(props) {
   return (
-    <div>
-      <h2>Order summary</h2>
+    <div className="flex flex-col gap-4">
+      <div className="border-b-[1px] border-[#023047] py-3 text-[1.5rem] mt-8 xl:mt-0">
+        <h2>Order summary</h2>
+      </div>
+      <div className="flex flex-col gap-5">
+        <div className="flex justify-between">
+          <p>Subtotal</p>
+          <p>£{props.total.toFixed(2)}</p>
+        </div>
+        <div className="flex justify-between border-t-[1px] border-[#023047] pt-4 text-[1.2rem]">
+          <p>Total</p>
+          <p>£{props.total.toFixed(2)}</p>
+        </div>
+      </div>
+      <button className="bg-[#023047] text-white p-3 lg:w-[20%] mx-auto xl:w-[100%] w-full">
+        Checkout
+      </button>
     </div>
   );
 }
