@@ -95,8 +95,23 @@ export function BasketWarningModal(props) {
 
 export function PurchaseSummary(props) {
   return (
-    <div>
-      <h2>Order summary</h2>
+    <div className="flex flex-col gap-4">
+      <div className="border-b-[1px] border-[#023047] py-3 text-[1.5rem] mt-8 xl:mt-0">
+        <h2>Order summary</h2>
+      </div>
+      <div className="flex flex-col gap-5">
+        <div className="flex justify-between">
+          <p>Subtotal</p>
+          <p>£{props.total.toFixed(2)}</p>
+        </div>
+        <div className="flex justify-between border-t-[1px] border-[#023047] pt-4 text-[1.2rem]">
+          <p>Total</p>
+          <p>£{props.total.toFixed(2)}</p>
+        </div>
+      </div>
+      <button className="bg-[#023047] text-white p-3 lg:w-[20%] mx-auto xl:w-[100%] w-full">
+        Checkout
+      </button>
     </div>
   );
 }

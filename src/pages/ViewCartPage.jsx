@@ -64,9 +64,9 @@ const ViewCartPage = () => {
           );
         })}
       </div>
-      <div className="bg-blue-100 2xl:relative">
-        <div className="xl:fixed">
-          <PurchaseSummary />
+      <div className="2xl:w-[15vw] xl:w-[25vw]">
+        <div className="w-full">
+          <PurchaseSummary total={total} />
         </div>
       </div>
     </div>
