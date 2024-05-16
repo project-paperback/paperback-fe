@@ -46,6 +46,7 @@ const ViewCartPage = () => {
         {booksInData.map((book) => {
           return (
             <BookBasketTile
+              key={book.product}
               product={book.product}
               thumbnails={book.thumbnails}
               qty={book.quantity}

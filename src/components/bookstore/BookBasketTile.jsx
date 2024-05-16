@@ -31,7 +31,7 @@ export function BookBasketTile(props) {
     <div className="lg:grid basket-tile-item relative   flex flex-col text-center lg:text-left my-2 ">
       <div className="lg:grid grid-cols-inner-info flex flex-col">
         <div className="border-2 p-3 w-[8rem] mx-auto lg:mb-0 mb-5">
-          <img src={props.thumbnails[0]} alt="" className="h-auto " />
+          <img src={props.thumbnails[1]} alt="" className="h-auto " />
         </div>
         <div className="lg:flex lg:flex-col lg:gap-4 ">
           <h2>{props.description}</h2>

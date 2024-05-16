@@ -1,10 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import NavBar from "./components/nav/NavBar";
 import { useEffect, useState } from "react";
+import SideCartMenu from "./components/SideCartMenu";
 
 export function Layout(props) {
   const [divStyles, setDivStyles] = useState("");
-  const [bgStyles, setBgStyles] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (isOpen) {
@@ -20,22 +20,17 @@ export function Layout(props) {
           setUser={props.setUser}
           setDivStyles={setDivStyles}
           setIsOpen={setIsOpen}
-          isOpen={isOpen}
+          divStyles={divStyles}
         />
       </header>
       <main className="lg:px-10">
-        <div
-          className={`top-0 right-0 fixed h-[100vh] w-[30%] bg-red-300 ${divStyles}`}
-        >
-          <button className="mr-4" onClick={() => setIsOpen(!isOpen)}>
-            Close
-          </button>
-          <button>
-            <Link to={"shopping-cart"} onClick={() => setIsOpen(!isOpen)}>
-              View Cart
-            </Link>
-          </button>
-        </div>
+        <SideCartMenu
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          divStyles={divStyles}
+          setUser={props.setUser}
+        />
+
         <Outlet />
       </main>
     </div>

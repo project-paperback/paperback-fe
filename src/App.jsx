@@ -15,6 +15,7 @@ import { SignInPage } from "./pages/SignInPage";
 import { UserContext } from "./utilities_&_custom_hooks/General";
 import { useEffect, useState } from "react";
 import ViewCartPage from "./pages/ViewCartPage";
+import { Success } from "./Success";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -38,6 +39,7 @@ function App() {
           element={<SignInPage setUserFromBe={setUserFromBe} />}
         />
         <Route path="shopping-cart" element={<ViewCartPage />} />
+        <Route path="success" element={<Success />} />
       </Route>
     )
   );
