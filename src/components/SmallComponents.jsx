@@ -109,7 +109,15 @@ export function PurchaseSummary(props) {
           <p>£{props.total.toFixed(2)}</p>
         </div>
       </div>
-      <button className="bg-[#023047] text-white p-3 lg:w-[20%] mx-auto xl:w-[100%] w-full">
+      <button
+        onClick={async () => {
+          const paymentURL = (
+            await axios.post("https://paperback-vy73.onrender.com/api/checkout")
+          ).data.paymentURL;
+          window.location.href = paymentURL;
+        }}
+        className="bg-[#023047] text-white p-3 lg:w-[20%] mx-auto xl:w-[100%] w-full"
+      >
         Checkout
       </button>
     </div>
