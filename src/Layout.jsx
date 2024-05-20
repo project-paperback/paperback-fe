@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./components/nav/NavBar";
 import { useEffect, useState } from "react";
-import SideCartMenu from "./components/SideCartMenu";
+import MobileMenu from "./components/MobileMenu";
 
 export function Layout(props) {
   const [divStyles, setDivStyles] = useState("");
@@ -24,7 +24,7 @@ export function Layout(props) {
         />
       </header>
       <main className="lg:px-10">
-        <SideCartMenu
+        <MobileMenu
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           divStyles={divStyles}

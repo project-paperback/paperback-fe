@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { UserContext } from "../utilities_&_custom_hooks/General";
 import axios from "axios";
 
-const SideCartMenu = (props) => {
+const MobileMenu = (props) => {
   const user = useContext(UserContext);
 
   return (
@@ -49,6 +49,13 @@ const SideCartMenu = (props) => {
         </div>
         <NavLink
           className={`hover:opacity-[0.7] `}
+          to="/"
+          onClick={() => props.setIsOpen(!props.isOpen)}
+        >
+          Home Page
+        </NavLink>{" "}
+        <NavLink
+          className={`hover:opacity-[0.7] `}
           to="bookstore"
           onClick={() => props.setIsOpen(!props.isOpen)}
         >
@@ -66,4 +73,4 @@ const SideCartMenu = (props) => {
   );
 };
 
-export default SideCartMenu;
+export default MobileMenu;
