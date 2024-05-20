@@ -50,7 +50,7 @@ const NavigationLinks = (props) => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 50 50"
-          width="35px"
+          width="30px"
           height="35px"
           fill="#023047"
         >
