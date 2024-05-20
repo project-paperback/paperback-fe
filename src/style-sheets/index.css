@@ -152,7 +152,14 @@ h4,
 .quick-view-btn {
   transition: all ease-in-out 300ms;
 }
-
+/* banner*/
+.hero-banner-styles {
+  background-image: url("src/assets/hero-banner-bg.jpeg");
+  background-position: 0% 85%;
+  background-size: cover;
+  width: 100%;
+  height: 40rem;
+}
 @media (max-width: 1024px) {
   .gallery-grid {
     display: grid;

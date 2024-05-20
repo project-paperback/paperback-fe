@@ -6,7 +6,6 @@ export function useFetchData(url, id, pageNumber) {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
   let buildUrl = "";
-
   if (id) {
     buildUrl = `${url}/${id}`;
   } else if (pageNumber) {
@@ -19,6 +18,7 @@ export function useFetchData(url, id, pageNumber) {
         const response = await axios.get(apiUrl);
         const data = response.data;
         setData(data);
+        console.log(data);
 
         setIsPending(false);
       } catch (error) {

@@ -6,7 +6,7 @@ const BookTile = (props) => {
       {/* Image container start */}
       <NavLink
         className="image-container relative"
-        to={`book-details/${props.bookId}`}
+        to={`/bookstore/book-details/${props.bookId}`}
       >
         <div className="px-10 py-4 bg-gray-100">
           <img src={props.imageLinks[1]} alt="" className="shadow-xl" />
