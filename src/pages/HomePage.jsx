@@ -12,20 +12,29 @@ import { BasketWarningModal } from "../components/SmallComponents";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 6,
+    breakpoint: { max: 4000, min: 2100 },
+    items: 5,
+    // partialVisibilityGutter: 40,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 5,
+    breakpoint: { max: 2000, min: 1084 },
+    items: 4,
+    // partialVisibilityGutter: 40,
+  },
+  lgTablet: {
+    breakpoint: { max: 1080, min: 720 },
+    items: 3,
+    // partialVisibilityGutter: 40,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 3,
+    breakpoint: { max: 700, min: 500 },
+    items: 2,
+    // partialVisibilityGutter: 40,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
+    // partialVisibilityGutter: 40,
   },
 };
 export function HomePage(props) {
@@ -59,27 +68,24 @@ export function HomePage(props) {
       <Carousel
         swipeable={true}
         draggable={false}
-        // showDots={true}
         responsive={responsive}
-        // ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
         autoPlaySpeed={3000}
         keyBoardControl={true}
         customTransition="ease-in-out 600ms"
         // transitionDuration={100}
-        containerClass="carousel-container px-2"
+        containerClass=""
         removeArrowOnDeviceType={["tablet", "mobile"]}
         // dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
-        className="mx-auto w-[90%]"
+        className="mx-[5%] lg:px-14 px-[12%] lg:w-[90%]"
       >
         {carouselBooks.map((book) => (
-          <div className="w-[90%]">
+          <div className="w-[70%]">
             <BookTile
               title={book.title}
               imageLinks={book.imageLinks}
-              // authors={book.authors}
               price={book.price}
               key={book._id}
               bookId={book._id}
