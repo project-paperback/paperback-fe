@@ -65,35 +65,55 @@ export function HomePage(props) {
           </h2>
         </div>
       </div>
-      <Carousel
-        swipeable={true}
-        draggable={false}
-        responsive={responsive}
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={3000}
-        keyBoardControl={true}
-        customTransition="ease-in-out 600ms"
-        // transitionDuration={100}
-        containerClass=""
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        // dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-        className="mx-[5%] lg:px-14 px-[12%] lg:w-[90%]"
-      >
-        {carouselBooks.map((book) => (
-          <div className="w-[70%]">
-            <BookTile
-              title={book.title}
-              imageLinks={book.imageLinks}
-              price={book.price}
-              key={book._id}
-              bookId={book._id}
-              sendToBasket={sendToBasket}
-            />
+      <div className="grid landing-grid bg-red-200 mt-[3rem]">
+        <div className="bg-row flex justify-center">
+          <h2 className="text-[2.5rem] mb-[1rem] pt-[2rem]">BESTSELLERS</h2>
+        </div>
+
+        <div className="carousel-holder">
+          <Carousel
+            swipeable={true}
+            draggable={false}
+            responsive={responsive}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={3000}
+            keyBoardControl={true}
+            customTransition="ease-in-out 600ms"
+            // transitionDuration={100}
+            containerClass=""
+            removeArrowOnDeviceType={["tablet", "lgTablet", "mobile"]}
+            // dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+            className="mx-[5%] lg:px-14 px-[12%] lg:w-[90%]"
+          >
+            {carouselBooks.map((book) => (
+              <div className="w-[70%]">
+                <BookTile
+                  title={book.title}
+                  imageLinks={book.imageLinks}
+                  price={book.price}
+                  key={book._id}
+                  bookId={book._id}
+                  sendToBasket={sendToBasket}
+                  textColor={"text-white"}
+                  buttonStyle={"button-style"}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+        {/* <div className="border-b"></div> */}
+        <div className="row-start-4 col-start-1 col-end-9 text-white mt-[8rem]">
+          <div className="text-[2.5rem] text-center landing-recommended-border-y flex flex-col py-2">
+            <h2 className="leading-[3rem]">
+              <span className="text-[1.5rem]">This Month's</span>
+              <br />
+              RECOMMENDED BOOKS
+            </h2>
           </div>
-        ))}
-      </Carousel>
+        </div>
+      </div>
     </div>
   );
 }

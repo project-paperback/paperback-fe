@@ -77,7 +77,14 @@ export function BookstorePage() {
             msg={errorInBasket.response?.data?.msg}
           />
         )}
-        <h2 ref={topRef}>Our Bookstore</h2>
+        <h2
+          className="text-[2.5rem] text-center my-[2rem] font-bold hidden lg:block "
+          ref={topRef}
+        >
+          <span className="text-[1.2rem]">Our </span>
+          <br />
+          BOOKSTORE
+        </h2>
         <div className="gallery-grid justify-center">
           {" "}
           {isPending ? (
