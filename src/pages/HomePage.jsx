@@ -8,6 +8,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
 import { BasketWarningModal } from "../components/SmallComponents";
+import { Link } from "react-router-dom";
 
 const responsive = {
   superLargeDesktop: {
@@ -73,7 +74,7 @@ export function HomePage(props) {
         <div className="carousel-holder">
           <Carousel
             swipeable={true}
-            draggable={false}
+            draggable={true}
             responsive={responsive}
             infinite={true}
             autoPlay={true}
@@ -103,14 +104,59 @@ export function HomePage(props) {
             ))}
           </Carousel>
         </div>
-        {/* <div className="border-b"></div> */}
-        <div className="row-start-4 col-start-1 col-end-9 text-white lg:mt-[8rem] mt-[14rem]">
+        <div className="row-start-4 col-start-1 col-end-9 text-white mt-[14rem]">
           <div className="text-[2.5rem] text-center landing-recommended-border-y flex flex-col py-2">
             <h2 className="leading-[3rem]">
               <span className="text-[1.5rem]">This Month's</span>
               <br />
               RECOMMENDED BOOKS
             </h2>
+          </div>
+        </div>
+        <div className="recommended-books-carousel row-start-7 col-start-1 col-end-9">
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            responsive={responsive}
+            infinite={true}
+            autoPlay={false}
+            autoPlaySpeed={3000}
+            keyBoardControl={true}
+            customTransition="ease-in-out 600ms"
+            // transitionDuration={100}
+            containerClass=""
+            removeArrowOnDeviceType={["tablet", "lgTablet", "mobile"]}
+            // dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+            className="mx-[5%] lg:px-14 px-[12%] lg:w-[90%]"
+          >
+            {carouselBooks.map((book) => (
+              <div className="w-[70%]">
+                <BookTile
+                  title={book.title}
+                  imageLinks={book.imageLinks}
+                  price={book.price}
+                  key={book._id}
+                  bookId={book._id}
+                  sendToBasket={sendToBasket}
+                  textColor={"text-white"}
+                  buttonStyle={"button-style"}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+        <div className="row-start-10 col-start-2 col-end-8 text-white  mt-[12rem]">
+          <div className="text-[4rem] text-center landing-recommended-border-y flex flex-col py-2">
+            <h2 className="leading-[5.5rem]">
+              THERE'S NO <br /> SUCH THING AS TOO MANY BOOKS
+            </h2>
+            <Link
+              to="bookstore"
+              className="button-style text-[1.2rem] w-[25%] mx-auto py-2 mt-[3rem] hover:bg-white hover:text-[#023047] transition-all duration-300"
+            >
+              Bookstore
+            </Link>
           </div>
         </div>
       </div>
