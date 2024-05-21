@@ -113,7 +113,7 @@ export function HomePage(props) {
             </h2>
           </div>
         </div>
-        <div className="recommended-books-carousel row-start-7 col-start-1 col-end-9">
+        <div className="recommended-books-carousel row-start-7 col-start-1 col-end-9 mt-[4rem]">
           <Carousel
             swipeable={true}
             draggable={true}
@@ -146,14 +146,14 @@ export function HomePage(props) {
             ))}
           </Carousel>
         </div>
-        <div className="row-start-10 col-start-2 col-end-8 text-white  mt-[12rem]">
+        <div className="row-start-10 col-start-2 col-end-8 text-white  mt-[10rem]">
           <div className="text-[4rem] text-center landing-recommended-border-y flex flex-col py-2">
             <h2 className="leading-[5.5rem]">
               THERE'S NO <br /> SUCH THING AS TOO MANY BOOKS
             </h2>
             <Link
               to="bookstore"
-              className="button-style text-[1.2rem] w-[25%] mx-auto py-2 mt-[3rem] hover:bg-white hover:text-[#023047] transition-all duration-300"
+              className="button-style text-[1.2rem] w-fit mx-auto py-2 px-6 mt-[3rem] hover:bg-white hover:text-[#023047] transition-all duration-300"
             >
               Bookstore
             </Link>
