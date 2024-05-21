@@ -104,7 +104,7 @@ export function HomePage(props) {
           </Carousel>
         </div>
         {/* <div className="border-b"></div> */}
-        <div className="row-start-4 col-start-1 col-end-9 text-white mt-[8rem]">
+        <div className="row-start-4 col-start-1 col-end-9 text-white lg:mt-[8rem] mt-[14rem]">
           <div className="text-[2.5rem] text-center landing-recommended-border-y flex flex-col py-2">
             <h2 className="leading-[3rem]">
               <span className="text-[1.5rem]">This Month's</span>
