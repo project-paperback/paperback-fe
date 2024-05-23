@@ -66,7 +66,7 @@ const MobileMenu = (props) => {
           to="contact"
           onClick={() => props.setIsOpen(!props.isOpen)}
         >
-          Contact
+          Contact Us
         </NavLink>
       </div>
     </div>

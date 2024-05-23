@@ -66,7 +66,7 @@ export function HomePage(props) {
           </h2>
         </div>
       </div>
-      <div className="grid landing-grid bg-red-200 mt-[3rem]">
+      <div className="grid landing-grid mt-[3rem]">
         <div className="bg-row flex justify-center">
           <h2 className="text-[2.5rem] mb-[1rem] pt-[2rem]">BESTSELLERS</h2>
         </div>

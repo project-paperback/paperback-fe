@@ -11,7 +11,7 @@ import {
 export function LoginForm(props) {
   return (
     <form className={props.className}>
-      <h3 className="text-2xl font-bold roboto-regular">Log In</h3>
+      <h3 className="text-2xl font-bold roboto-regular p-5">Log In</h3>
 
       <div className="flex flex-col gap-[3rem] ">
         <InputField
@@ -51,8 +51,9 @@ export function LoginForm(props) {
       <div className="flex flex-col w-full">
         <div className="divider">OR</div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center pb-4">
         <NavLink
+          to={"/create_account"}
           className={"flex items-center gap-[0.5rem] create-account-link "}
         >
           <Icon032Books height={"2rem"} width={"1.4rem"} />
@@ -62,16 +63,22 @@ export function LoginForm(props) {
     </form>
   );
 }
-export function SignUp() {
+export function SignUp(props) {
   return (
-    <form className="border-[10px] lg:border-[20px] border-[#023047] py-8 lg:p-[5rem] flex flex-col items-center lg:gap-[2rem] ">
-      <h3 className="text-2xl font-bold mb-8 lg:mb-0">Sign Up</h3>
-      <div className="flex flex-col gap-10 lg:gap-[4rem] w-[70%]">
+    <form className={props.className}>
+      <h3 className="text-2xl font-bold mb-8 lg:mb-0 roboto-regular">
+        Sign Up
+      </h3>
+      <div className="flex flex-col gap-10 lg:gap-[4rem] w-[70%] lg:w-[100%]">
         <div className="flex lg:gap-[50px] gap-10 flex-col lg:flex-row ">
           <InputField
             autoComplete={"off"}
             placeholder={"Name"}
             type={"text"}
+            onChange={(e) => {
+              let nameVal = e.target.value;
+              props.setUserFirstName(nameVal);
+            }}
             className={
               "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
             }
@@ -80,6 +87,10 @@ export function SignUp() {
             autoComplete={"off"}
             placeholder={"Surname"}
             type={"text"}
+            onChange={(e) => {
+              let surnameVal = e.target.value;
+              props.setUserLastName(surnameVal);
+            }}
             className={
               "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
             }
@@ -90,6 +101,10 @@ export function SignUp() {
           autoComplete={"off"}
           placeholder={"Email"}
           type={"email"}
+          onChange={(e) => {
+            let emailVal = e.target.value;
+            props.setUserEmail(emailVal);
+          }}
           className={
             "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
           }
@@ -100,6 +115,10 @@ export function SignUp() {
             autoComplete={"off"}
             placeholder={"Password"}
             type={"password"}
+            onChange={(e) => {
+              let passwordVal = e.target.value;
+              props.setPassword(passwordVal);
+            }}
             className={
               "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
             }
@@ -108,19 +127,34 @@ export function SignUp() {
             autoComplete={"off"}
             placeholder={"Confirm Password"}
             type={"password"}
+            onChange={(e) => {
+              let confirmPasswordVal = e.target.value;
+              props.setPasswordConfirm(confirmPasswordVal);
+            }}
             className={
               "border-b-[2px] border-b-[#023047] pb-2 px-1 text-[1rem] w-full outline-none placeholder:text-[#023047]"
             }
           />
         </div>
-        <button className="hover:opacity-[0.6] transition-all duration-[200ms]">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            props.handleSignUp();
+          }}
+          className="hover:opacity-[0.6] transition-all duration-[200ms]"
+        >
           Continue
         </button>
       </div>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full my-5">
         <div className="divider">OR</div>
       </div>
-      <NavLink className={"flex items-center gap-[0.5rem] create-account-link"}>
+      <NavLink
+        to={"/sign_in"}
+        className={
+          "flex items-center justify-center mx-auto gap-[0.5rem] create-account-link"
+        }
+      >
         <Icon032Books height={"2rem"} width={"1.4rem"} />
         <p>Log in to your account</p>
       </NavLink>

@@ -112,7 +112,7 @@ h4,
 .landing-grid {
   background: #023047;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(16, 10rem);
+  grid-template-rows: repeat(16, 8rem);
 }
 
 .carousel-holder {

@@ -16,6 +16,8 @@ import { UserContext } from "./utilities_&_custom_hooks/General";
 import { useEffect, useState } from "react";
 import ViewCartPage from "./pages/ViewCartPage";
 import { Success } from "./Success";
+import CreateAccountPage from "./pages/CreateAccountPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -38,11 +40,17 @@ function App() {
           path="sign_in"
           element={<SignInPage setUserFromBe={setUserFromBe} />}
         />
+        <Route
+          path="create_account"
+          element={<CreateAccountPage setUserFromBe={setUserFromBe} />}
+        />
+        <Route path="profile_page" element={<ProfilePage />} />
         <Route path="shopping-cart" element={<ViewCartPage />} />
         <Route path="success" element={<Success />} />
       </Route>
     )
   );
+
   return (
     <>
       <UserContext.Provider value={user}>

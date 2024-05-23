@@ -23,7 +23,7 @@ export function SignInPage(props) {
   };
 
   return (
-    <div className="lg:grid sign-in-grid-block relative lg:w-[90%] mr-6 ml-6 lg:mx-auto my-[5rem] ">
+    <div className="lg:grid sign-in-grid-block relative xl:w-[70%] mr-6 ml-6 lg:mx-auto my-[5rem] ">
       <div className="bg-gray-300 item-bg"></div>
       <div className="bg-blue-300 item-1 absolute lg:top-[3rem] lg:left-[3rem] top-[-1rem] left-[-1rem] z-[-1] lg:z-0"></div>
       <div className="bg-blue-300 item-2 absolute lg:bottom-[-1rem] lg:right-[3rem] bottom-[-1rem] right-[-1rem] z-[-1] lg:z-0"></div>
