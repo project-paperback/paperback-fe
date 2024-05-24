@@ -110,7 +110,7 @@ export function BookstorePage() {
         <div className="flex justify-center items-center  h-9 py-7 ">
           <div className="flex  gap-4">
             {pageNumber === 1 ? (
-              <button disabled={true}>
+              <button disabled={true} className="hidden">
                 <IconArrowLeftCircle className={"h-7 w-7"} />
               </button>
             ) : (
