@@ -75,9 +75,11 @@ export function HomePage(props) {
               </h2>
             </div>
           </div>
-          <div className="grid landing-grid mt-[3rem]">
+          <div className="grid landing-grid mt-[9rem] relative">
             <div className="bg-row flex justify-center">
-              <h2 className="text-[2.5rem] mb-[1rem] pt-[2rem]">BESTSELLERS</h2>
+              <h2 className="text-[2.5rem] absolute top-[-1.5rem]">
+                BESTSELLERS
+              </h2>
             </div>
 
             <div className="carousel-holder">
@@ -160,8 +162,8 @@ export function HomePage(props) {
           </div>
           {/* ======================== */}
           <div className="bg-[#023047] text-white py-[5rem]">
-            <div className="text-[4rem] text-center landing-recommended-border-y flex flex-col py-2">
-              <h2 className="leading-[5.5rem]">
+            <div className="text-[3rem] lg:text-[4rem] px-[1.5rem] lg:px-0  text-center landing-recommended-border-y flex flex-col py-2">
+              <h2 className="lg:leading-[5.5rem] leading-[4rem] ">
                 THERE'S NO <br /> SUCH THING AS TOO MANY BOOKS
               </h2>
               <Link
