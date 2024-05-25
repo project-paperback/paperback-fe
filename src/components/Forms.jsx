@@ -11,7 +11,7 @@ import {
 export function LoginForm(props) {
   return (
     <form className={props.className}>
-      <h3 className="text-2xl font-bold roboto-regular p-5">Log In</h3>
+      <h3 className="text-[2rem] font-bold roboto-regular p-5">Log In</h3>
 
       <div className="flex flex-col gap-[3rem] ">
         <InputField
@@ -66,10 +66,8 @@ export function LoginForm(props) {
 export function SignUp(props) {
   return (
     <form className={props.className}>
-      <h3 className="text-2xl font-bold mb-8 lg:mb-0 roboto-regular">
-        Sign Up
-      </h3>
-      <div className="flex flex-col gap-10 lg:gap-[4rem] w-[70%] lg:w-[100%]">
+      <h3 className="text-[2rem] font-bold roboto-regular">Sign Up</h3>
+      <div className="flex flex-col gap-6 lg:gap-[3.5rem] w-[70%] lg:w-[100%]">
         <div className="flex lg:gap-[50px] gap-10 flex-col lg:flex-row ">
           <InputField
             autoComplete={"off"}
@@ -146,7 +144,7 @@ export function SignUp(props) {
           Continue
         </button>
       </div>
-      <div className="flex flex-col w-full my-5">
+      <div className="flex flex-col w-full">
         <div className="divider">OR</div>
       </div>
       <NavLink
@@ -242,12 +240,9 @@ export function ChangeAccountDetails(props) {
     </form>
   );
 }
-export function ContactForm() {
+export function ContactForm(props) {
   return (
-    <form
-      action=""
-      className="contact-form border-[10px] lg:border-[20px] border-[#023047] p-[2rem] lg:p-[5rem] flex flex-col gap-5 lg:gap-10"
-    >
+    <form action="" className={props.className}>
       <div className="mb-3">
         <div className="flex flex-col gap-2">
           <h3 className="text-2xl font-bold">Customer service</h3>

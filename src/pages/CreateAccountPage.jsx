@@ -35,23 +35,22 @@ const CreateAccountPage = (props) => {
     }
   };
   return (
-    <div className="lg:grid sign-in-grid-block relative xl:w-[80%] mr-6 ml-6 lg:mx-auto my-[5rem] ">
-      <div className="bg-gray-300 item-bg"></div>
-      <div className="bg-blue-300 item-1 absolute lg:top-[3rem] lg:left-[3rem] top-[-1rem] left-[-1rem] z-[-1] lg:z-0"></div>
-      <div className="bg-blue-300 item-2 absolute lg:bottom-[-1rem] lg:right-[3rem] bottom-[-1rem] right-[-1rem] z-[-1] lg:z-0"></div>
-      <div className=" item-cont bg-white mx-auto">
-        <SignUp
-          className={
-            "flex flex-col items-center border-[#023047] lg:p-[4rem] text-center *:px-3  *:my-3 border-[10px] lg:border-[10px] bg-white lg:gap-[2rem] py-[3rem]"
-          }
-          setUserEmail={setUserEmail}
-          setPassword={setPassword}
-          setUserFirstName={setUserFirstName}
-          setUserLastName={setUserLastName}
-          handleSignUp={handleSignUp}
-          setPasswordConfirm={setPasswordConfirm}
-        />
-        {JSON.parse(user)?.user?.userEmail && <Navigate to={"/"} />}
+    <div className=" w-[100vw] h-[80vh] lg:h-[100vh] flex content-center lg:w-full lg:block">
+      <div className=" lg:bg-gray-300 relative w-[90%] lg:w-[80%] xl:w-[65%] lg:h-[70%] xl:h-[65%] mx-auto my-auto lg:my-0">
+        <div className="border-[10px] border-[#023047] bg-white mx-auto w-[90%] lg:w-[60%] lg:absolute  lg:top-[-10%] lg:right-[20%] lg:px-[2rem] xl:px-[4rem]">
+          <SignUp
+            className={
+              "py-[3rem] *:my-[1rem] text-center flex flex-col  *:mx-auto"
+            }
+            setUserEmail={setUserEmail}
+            setPassword={setPassword}
+            setUserFirstName={setUserFirstName}
+            setUserLastName={setUserLastName}
+            handleSignUp={handleSignUp}
+            setPasswordConfirm={setPasswordConfirm}
+          />
+          {JSON.parse(user)?.user?.userEmail && <Navigate to={"/"} />}
+        </div>
       </div>
     </div>
   );
