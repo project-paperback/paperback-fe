@@ -18,7 +18,7 @@ export function useFetchData(url, id, pageNumber) {
         const response = await axios.get(apiUrl);
         const data = response.data;
         setData(data);
-        console.log(data);
+        // console.log(data);
 
         setIsPending(false);
       } catch (error) {

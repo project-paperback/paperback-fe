@@ -145,7 +145,7 @@ export function SignUp(props) {
         </button>
       </div>
       <div className="flex flex-col w-full">
-        <div className="divider">OR</div>
+        <div className="divider px-[2rem]">OR</div>
       </div>
       <NavLink
         to={"/sign_in"}
