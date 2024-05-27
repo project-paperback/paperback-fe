@@ -3,7 +3,6 @@ import { LoginForm } from "../components/Forms";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../utilities_&_custom_hooks/General";
-import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
 
 export function SignInPage(props) {
   const user = useContext(UserContext);
@@ -30,7 +29,6 @@ export function SignInPage(props) {
         props.setUserFromBe(data);
       });
   };
-  // lg:w-[80%] xl:w-[65%] lg:h-[50%] xl:h-[50%] 2xl:h-[50%] mx-auto my-auto lg:my-0
   return (
     <div className="relative">
       {isPending ? (

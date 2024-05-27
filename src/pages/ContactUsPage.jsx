@@ -11,7 +11,7 @@ export function ContactUsPage() {
       if (data) setIsPending(false);
     });
   return (
-    <div>
+    <div className="relative">
       {isPending ? (
         <div className="absolute top-0 bottom-0 h-[80vh] w-full z-10 bg-white flex justify-center content-center">
           <span className="loading loading-spinner loading-lg "></span>

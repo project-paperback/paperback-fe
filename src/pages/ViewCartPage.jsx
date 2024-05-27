@@ -1,6 +1,7 @@
 // Hooks
 import { useEffect, useState } from "react";
 import { useFetchBasket } from "../utilities_&_custom_hooks/fetchHooks";
+
 // Components
 import { BookBasketTile } from "../components/bookstore/BookBasketTile";
 import { PurchaseSummary } from "../components/SmallComponents";
@@ -15,7 +16,7 @@ const ViewCartPage = () => {
     changeQty
   );
   const [booksInData, setBooksInData] = useState([]);
-
+  console.log(isPending);
   useEffect(() => {
     const arr = Array.from(data);
     setBooksInData(arr);
