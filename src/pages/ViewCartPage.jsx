@@ -7,6 +7,7 @@ import { BookBasketTile } from "../components/bookstore/BookBasketTile";
 import { PurchaseSummary } from "../components/SmallComponents";
 
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ViewCartPage = () => {
   const [changeQty, setChangeQty] = useState(false);
@@ -16,7 +17,6 @@ const ViewCartPage = () => {
     changeQty
   );
   const [booksInData, setBooksInData] = useState([]);
-  console.log(isPending);
   useEffect(() => {
     const arr = Array.from(data);
     setBooksInData(arr);
@@ -38,8 +38,25 @@ const ViewCartPage = () => {
       });
   }, [changeQty, booksInData]);
 
+  if (data.length === 0) {
+    return (
+      <div className="lg:flex flex-col lg:w-[75%] lg:mx-auto mx-10 mt-8">
+        <div className="border-b-[1px] border-[#023047] py-3">
+          <h2 className="text-[1.5rem]">My cart</h2>
+        </div>
+        <div className="flex items-center justify-center h-[22rem] border-b-[1px] border-[#023047]">
+          <div className="text-center">
+            <h2 className="text-[1.5rem] mb-4">Cart is empty</h2>
+            <Link to="/bookstore" className="underline">
+              Continue Browsing
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
-    <div className="lg:flex flex-col xl:grid grid-cols-[70%_30%] gap-8 2xl:w-[75%] lg:mx-auto mx-10">
+    <div className="lg:flex flex-col xl:grid grid-cols-[70%_30%] gap-8 2xl:w-[75%] lg:mx-auto mx-10 mt-8">
       <div className="">
         <div className="border-b-[1px] border-[#023047] py-3">
           <h2 className="text-[1.5rem]">My cart</h2>
@@ -59,7 +76,7 @@ const ViewCartPage = () => {
           );
         })}
       </div>
-      <div className="2xl:w-[15vw] xl:w-[25vw]">
+      <div className="2xl:w-[15vw] xl:w-[25vw] mt-8">
         <div className="w-full">
           <PurchaseSummary total={total} />
         </div>
