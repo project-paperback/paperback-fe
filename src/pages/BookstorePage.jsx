@@ -25,7 +25,7 @@ export function BookstorePage() {
     id,
     currentPage
   );
-  console.log(data);
+
   useEffect(() => {
     let timer;
 
@@ -93,7 +93,7 @@ export function BookstorePage() {
               <span className="loading loading-spinner loading-lg "></span>
             </div>
           ) : data?.books ? (
-            data.books.bookStack.map((book) => (
+            data.books.map((book) => (
               <BookTile
                 title={book.title}
                 imageLinks={book.imageLinks}
