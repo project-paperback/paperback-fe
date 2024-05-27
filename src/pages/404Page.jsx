@@ -3,7 +3,7 @@ import { Icon404 } from "../components/Icons";
 
 export function PageNotFound() {
   return (
-    <div className="not-found-page h-[80vh] flex justify-center items-center">
+    <div className="not-found-page h-[80vh] flex justify-center items-center my-[1%]">
       <div className="opacity-100 text-[#023047]  bg-white bg-opacity-[.7] p-[2rem] xl:p-[4rem] w-[90%] lg:w-[70%]">
         <div className="flex flex-col lg:flex-row justify-center items-center">
           <div className="flex items-center ">
