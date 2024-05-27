@@ -56,7 +56,7 @@ const MobileMenu = (props) => {
         </NavLink>{" "}
         <NavLink
           className={`hover:opacity-[0.7] `}
-          to="bookstore"
+          to="/bookstore?page=1"
           onClick={() => props.setIsOpen(!props.isOpen)}
         >
           Bookstore
