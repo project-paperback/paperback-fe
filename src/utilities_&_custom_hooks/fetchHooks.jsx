@@ -1,25 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export function useFetchData(url, id, pageNumber) {
+export function useFetchData(url, id, currentPage) {
   const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
-  let buildUrl = "";
-  if (id) {
-    buildUrl = `${url}/${id}`;
-  } else if (pageNumber) {
-    buildUrl = `${url}?page_number=${pageNumber}`;
-  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = buildUrl;
+        const apiUrl = `${url}?page_number=${currentPage}`; // Build URL with current page
         const response = await axios.get(apiUrl);
         const data = response.data;
-        setData(data);
-        // console.log(data);
 
+        setData(data);
         setIsPending(false);
       } catch (error) {
         setError(error);
@@ -27,8 +21,11 @@ export function useFetchData(url, id, pageNumber) {
       }
     };
 
-    fetchData();
-  }, [url, id, pageNumber]);
+    if (currentPage) {
+      // Only fetch if currentPage exists
+      fetchData();
+    }
+  }, [currentPage]); // Only include currentPage in dependency array
 
   return { data, isPending, error };
 }

@@ -1,15 +1,23 @@
 import axios from "axios";
 import { useState, useEffect, createContext } from "react";
+import { useSearchParams } from "react-router-dom";
 export function usePagination() {
-  const [pageNumber, setPageNumber] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = parseInt(searchParams.get("page"));
+
+  const [currentPage, setCurrentPage] = useState(page);
 
   const handleNextPage = () => {
-    setPageNumber((prevPageNumber) => prevPageNumber + 1);
+    const newPage = currentPage + 1;
+    setCurrentPage(newPage);
+    setSearchParams({ page: newPage });
   };
   const handlePrevPage = () => {
-    setPageNumber((prevPageNumber) => prevPageNumber - 1);
+    const newPage = currentPage - 1;
+    setCurrentPage(newPage);
+    setSearchParams({ page: newPage });
   };
-  return { pageNumber, handleNextPage, handlePrevPage };
+  return { currentPage, handleNextPage, handlePrevPage };
 }
 export function sendToBasket(id) {
   console.log(id);

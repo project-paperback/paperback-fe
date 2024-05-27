@@ -11,7 +11,10 @@ const NavigationLinks = (props) => {
       <NavLink className={`hover:opacity-[0.7] hidden lg:block`} to="/">
         Home
       </NavLink>
-      <NavLink className={`hover:opacity-[0.7] hidden lg:block`} to="bookstore">
+      <NavLink
+        className={`hover:opacity-[0.7] hidden lg:block`}
+        to="bookstore?page=1"
+      >
         Bookstore
       </NavLink>
       <NavLink className="hover:opacity-[0.7]  hidden lg:block" to="contact">
