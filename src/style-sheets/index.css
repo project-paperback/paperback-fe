@@ -176,6 +176,41 @@ h4,
   margin-bottom: 2.2rem;
 }
 
+/* Miscellaneous */
+
+.not-found-page {
+  background: radial-gradient(
+      circle at top,
+      transparent 19%,
+      #dbecf7 20%,
+      #dbecf7 25%,
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at bottom,
+      transparent 19%,
+      #dbecf7 20%,
+      #dbecf7 25%,
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at right,
+      transparent 19%,
+      #dbecf7 20%,
+      #dbecf7 25%,
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at left,
+      transparent 19%,
+      #dbecf7 20%,
+      #dbecf7 25%,
+      transparent 26%
+    );
+  background-size: 6em 6em;
+  background-color: #ffffff;
+  opacity: 1;
+}
 @media (max-width: 1024px) {
   .gallery-grid {
     display: grid;

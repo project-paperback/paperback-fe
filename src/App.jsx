@@ -18,6 +18,7 @@ import ViewCartPage from "./pages/ViewCartPage";
 import { Success } from "./Success";
 import CreateAccountPage from "./pages/CreateAccountPage";
 import ProfilePage from "./pages/ProfilePage";
+import { PageNotFound } from "./pages/404Page";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,7 +29,8 @@ function App() {
   }, [userFromBe]);
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout setUser={setUser} />}>
+      <Route path="" element={<Layout setUser={setUser} />}>
+        <Route path="*" element={<PageNotFound />} />
         <Route index element={<HomePage setUser={setUser} />} />
         <Route path="bookstore" element={<BookstorePage />} />
         <Route path="contact" element={<ContactUsPage />} />

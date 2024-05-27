@@ -47,7 +47,7 @@ const ViewCartPage = () => {
         <div className="flex items-center justify-center h-[22rem] border-b-[1px] border-[#023047]">
           <div className="text-center">
             <h2 className="text-[1.5rem] mb-4">Cart is empty</h2>
-            <Link to="/bookstore" className="underline">
+            <Link to="/bookstore?page=1" className="underline">
               Continue Browsing
             </Link>
           </div>
