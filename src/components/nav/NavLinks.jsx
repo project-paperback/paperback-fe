@@ -3,9 +3,9 @@ import { IconProfile, ShoppingCartOutline } from "../Icons";
 import { useContext } from "react";
 import { UserContext } from "../../utilities_&_custom_hooks/General";
 import axios from "axios";
-
 const NavigationLinks = (props) => {
   const user = useContext(UserContext);
+
   return (
     <div className="text-lg flex items-center gap-4 *:text-[#023047] *:transition-all *:ease-in *:duration-300 w-fit h-full nav-links">
       <NavLink className={`hover:opacity-[0.7] hidden lg:block`} to="/">
@@ -40,9 +40,21 @@ const NavigationLinks = (props) => {
           </Link>
         )}
       </div>
-      <NavLink className="hover:opacity-[0.7]" to={"shopping-cart"}>
-        <ShoppingCartOutline height={"1.8rem"} width={"1.8rem"} />
-      </NavLink>
+      {!user ? (
+        <button disabled={true}>
+          {" "}
+          <ShoppingCartOutline
+            height={"1.8rem"}
+            width={"1.8rem"}
+            fill={"#8d99ae"}
+          />
+        </button>
+      ) : (
+        <NavLink className="hover:opacity-[0.7]" to={"shopping-cart"}>
+          <ShoppingCartOutline height={"1.8rem"} width={"1.8rem"} />
+        </NavLink>
+      )}
+
       <button
         className="lg:hidden "
         onClick={() => props.setIsOpen(!props.isOpen)}
