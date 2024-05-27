@@ -18,13 +18,14 @@ export function BookstorePage() {
     });
   };
   const id = "";
-  let { pageNumber, handleNextPage, handlePrevPage } = usePagination();
+  let { currentPage, handleNextPage, handlePrevPage } = usePagination();
 
   const { data, isPending, error } = useFetchData(
     "https://paperback-vy73.onrender.com/api/books",
     id,
-    pageNumber
+    currentPage
   );
+  console.log(data);
   useEffect(() => {
     let timer;
 
@@ -59,7 +60,7 @@ export function BookstorePage() {
             >
               <IconArrowLeftCircle className={"h-7 w-7"} />
             </button>
-            <p>Page {pageNumber}</p>
+            <p>Page {currentPage}</p>
             <button disabled={true}>
               {" "}
               <IconArrowRightCircle className={"h-7 w-7"} />
@@ -92,7 +93,7 @@ export function BookstorePage() {
               <span className="loading loading-spinner loading-lg "></span>
             </div>
           ) : data?.books ? (
-            data.books.map((book) => (
+            data.books.bookStack.map((book) => (
               <BookTile
                 title={book.title}
                 imageLinks={book.imageLinks}
@@ -109,7 +110,7 @@ export function BookstorePage() {
         </div>
         <div className="flex justify-center items-center  h-9 py-7 ">
           <div className="flex  gap-4">
-            {pageNumber === 1 ? (
+            {currentPage === 1 ? (
               <button disabled={true} className="hidden">
                 <IconArrowLeftCircle className={"h-7 w-7"} />
               </button>
@@ -124,7 +125,7 @@ export function BookstorePage() {
               </button>
             )}
 
-            <p>Page {pageNumber}</p>
+            <p>Page {currentPage}</p>
             <button
               onClick={(e) => {
                 handleNextPage();
