@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, createContext } from "react";
 import { useSearchParams } from "react-router-dom";
+
 export function usePagination() {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = parseInt(searchParams.get("page"));

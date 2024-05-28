@@ -1,5 +1,5 @@
 import { SignUp } from "../components/Forms";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../utilities_&_custom_hooks/General";
@@ -11,8 +11,10 @@ const CreateAccountPage = (props) => {
   const [userLastName, setUserLastName] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [isPending, setIsPending] = useState(true);
+  const [wrongCredentialsError, setWrongCredentialsError] = useState("");
+  const [isShaking, setIsShaking] = useState(false);
   const user = useContext(UserContext);
-
+  console.log(wrongCredentialsError);
   axios
     .get("https://paperback-vy73.onrender.com/api/books")
     .then(({ data }) => {
@@ -26,6 +28,8 @@ const CreateAccountPage = (props) => {
       userEmail,
       password,
     };
+
+    setTimeout(() => setIsShaking(false), 500);
     if (password === passwordConfirm) {
       axios
         .post(
@@ -36,9 +40,12 @@ const CreateAccountPage = (props) => {
           localStorage.setItem("currentUser", JSON.stringify(data));
           props.setUserFromBe(data);
           console.log(data, "<<DATA");
+        })
+        .catch((error) => {
+          setWrongCredentialsError(error.response.data.msg);
         });
     } else {
-      console.log("Passwords not matching"); // << to be changed
+      setWrongCredentialsError("Passwords not matching"); // << to be changed
     }
   };
   return (
@@ -61,6 +68,9 @@ const CreateAccountPage = (props) => {
                 setUserLastName={setUserLastName}
                 handleSignUp={handleSignUp}
                 setPasswordConfirm={setPasswordConfirm}
+                error={wrongCredentialsError}
+                setIsShaking={setIsShaking}
+                isShaking={isShaking}
               />
               {JSON.parse(user)?.user?.userEmail && <Navigate to={"/"} />}
             </div>

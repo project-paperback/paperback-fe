@@ -9,6 +9,8 @@ export function SignInPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPending, setIsPending] = useState(true);
+  const [wrongCredentialsError, setWrongCredentialsError] = useState("");
+  const [isShaking, setIsShaking] = useState(false);
 
   axios
     .get("https://paperback-vy73.onrender.com/api/books")
@@ -18,6 +20,7 @@ export function SignInPage(props) {
 
   const handleLogIn = () => {
     const sendToAutehticate = { email, password };
+    setTimeout(() => setIsShaking(false), 500);
 
     axios
       .post(
@@ -27,6 +30,11 @@ export function SignInPage(props) {
       .then(({ data }) => {
         localStorage.setItem("currentUser", JSON.stringify(data));
         props.setUserFromBe(data);
+      })
+      .catch((error) => {
+        setWrongCredentialsError(error.response.data.msg);
+        console.log(error);
+        console.log(error.response.data.msg, error.response.status);
       });
   };
   return (
@@ -44,6 +52,9 @@ export function SignInPage(props) {
                 setEmail={setEmail}
                 setPassword={setPassword}
                 handleLogIn={handleLogIn}
+                error={wrongCredentialsError}
+                isShaking={isShaking}
+                setIsShaking={setIsShaking}
               />
               {JSON.parse(user)?.loggedIn?.userEmail && <Navigate to={"/"} />}
             </div>

@@ -6,8 +6,8 @@ import {
   IconPinterestFilled,
   Icon032Books,
   IconSettingsOuline,
+  IconWarning,
 } from "./Icons";
-
 export function LoginForm(props) {
   return (
     <form className={props.className}>
@@ -39,11 +39,13 @@ export function LoginForm(props) {
           }}
         />
       </div>
+
       <button
         className="hover:opacity-[0.6] transition-all duration-[200ms]"
         onClick={(e) => {
           e.preventDefault();
           props.handleLogIn();
+          props.setIsShaking((isShaking) => !isShaking);
         }}
       >
         Continue
@@ -60,6 +62,17 @@ export function LoginForm(props) {
           <p>Create new account</p>
         </NavLink>
       </div>
+      {props.error && (
+        <div
+          role="alert"
+          className={`alert w-fit mx-auto bg-[#023047] text-white  ${
+            props.isShaking ? "shake" : ""
+          }`}
+        >
+          <IconWarning className={`fill-[white] w-[1.6rem] h-[1.6rem]`} />
+          <span>{props.error}</span>
+        </div>
+      )}
     </form>
   );
 }
@@ -138,6 +151,7 @@ export function SignUp(props) {
           onClick={(e) => {
             e.preventDefault();
             props.handleSignUp();
+            props.setIsShaking((isShaking) => !isShaking);
           }}
           className="hover:opacity-[0.6] transition-all duration-[200ms]"
         >
@@ -156,6 +170,17 @@ export function SignUp(props) {
         <Icon032Books height={"2rem"} width={"1.4rem"} />
         <p>Log in to your account</p>
       </NavLink>
+      {props.error && (
+        <div
+          role="alert"
+          className={`alert w-fit mx-auto bg-[#023047] text-white  ${
+            props.isShaking ? "shake" : ""
+          }`}
+        >
+          <IconWarning className={`fill-[white] w-[1.6rem] h-[1.6rem]`} />
+          <span>{props.error}</span>
+        </div>
+      )}
     </form>
   );
 }

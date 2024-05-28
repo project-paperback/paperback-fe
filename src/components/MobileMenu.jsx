@@ -35,7 +35,6 @@ const MobileMenu = (props) => {
                 axios
                   .post("https://paperback-vy73.onrender.com/api/sign_out")
                   .then(() => {
-                    console.log("hello");
                     props.setUser(null);
                     localStorage.clear();
                   });
