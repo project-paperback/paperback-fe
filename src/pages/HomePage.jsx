@@ -99,13 +99,12 @@ export function HomePage(props) {
                 itemClass="carousel-item-padding-40-px"
                 className="mx-[5%] lg:px-14 px-[12%] lg:w-[90%]"
               >
-                {carouselBooks.map((book) => (
-                  <div className="w-[70%]">
+                {carouselBooks.map((book, index) => (
+                  <div className="w-[70%]" key={index}>
                     <BookTile
                       title={book.title}
                       imageLinks={book.imageLinks}
                       price={book.price}
-                      key={book._id}
                       bookId={book._id}
                       sendToBasket={sendToBasket}
                       textColor={"text-white"}
@@ -143,13 +142,12 @@ export function HomePage(props) {
                 itemClass="carousel-item-padding-40-px"
                 className="mx-[5%] lg:px-14 px-[12%] lg:w-[90%]"
               >
-                {carouselBooks.map((book) => (
-                  <div className="w-[70%]">
+                {carouselBooks.map((book, index) => (
+                  <div className="w-[70%]" key={index}>
                     <BookTile
                       title={book.title}
                       imageLinks={book.imageLinks}
                       price={book.price}
-                      key={book._id}
                       bookId={book._id}
                       sendToBasket={sendToBasket}
                       textColor={"text-white"}

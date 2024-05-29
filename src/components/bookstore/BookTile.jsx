@@ -1,5 +1,4 @@
-import { NavLink } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
 const BookTile = (props) => {
   return (
     <div className={`card`} id={props.bookId}>
@@ -12,11 +11,16 @@ const BookTile = (props) => {
           <img src={props.imageLinks[1]} alt="" className="shadow-xl" />
         </div>
         <div className="quick-actions bg-white bg-opacity-[.8] w-full flex flex-col gap-2 p-2 absolute">
-          <div className="py-1 flex justify-center items-center h-[4rem]">
-            <button className="hover:opacity-[0.6] transition-all duration-[200ms]">
+          <Link
+            className="py-1 flex justify-center items-center h-[4rem]"
+            onClick={() => {
+              console.log("hello");
+            }}
+          >
+            <div className="hover:opacity-[0.6] transition-all duration-[200ms]">
               Quick View
-            </button>
-          </div>
+            </div>
+          </Link>
         </div>
       </NavLink>
       {/* Image container end */}

@@ -70,9 +70,9 @@ export function BasketWarningModal(props) {
   return (
     <div
       className="bg-gray-700 bg-opacity-[.80] text-white z-[6] fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center"
-      onClick={() => {
-        props.setErrorInBasket();
-      }}
+      // onClick={() => {
+      //   props.setErrorInBasket();
+      // }}
     >
       {/* Added Tailwind CSS classes for modal animation */}
       <div className=" border-[#023047] text-[#023047] py-12 px-6 text-center border-[10px] lG:w-[40%] bg-white flex flex-col gap-8">
