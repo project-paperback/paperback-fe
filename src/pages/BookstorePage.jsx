@@ -25,7 +25,6 @@ export function BookstorePage() {
     id,
     currentPage
   );
-
   useEffect(() => {
     let timer;
 
@@ -93,7 +92,7 @@ export function BookstorePage() {
               <span className="loading loading-spinner loading-lg "></span>
             </div>
           ) : data?.books ? (
-            data.books.map((book) => (
+            data.books.books.map((book) => (
               <BookTile
                 title={book.title}
                 imageLinks={book.imageLinks}
@@ -105,7 +104,7 @@ export function BookstorePage() {
               />
             ))
           ) : (
-            <Navigate to={"bookstore"} />
+            <Navigate to={"/bookstore?page=1"} />
           )}
         </div>
         <div className="flex justify-center items-center  h-9 py-7 ">
@@ -126,14 +125,27 @@ export function BookstorePage() {
             )}
 
             <p>Page {currentPage}</p>
-            <button
-              onClick={(e) => {
-                handleNextPage();
-                scrollToTop();
-              }}
-            >
-              <IconArrowRightCircle className={"h-7 w-7"} />
-            </button>
+
+            {currentPage === Math.ceil(data?.books?.lengthOfCollection / 12) ? (
+              <button
+                className="hidden"
+                onClick={(e) => {
+                  handleNextPage();
+                  scrollToTop();
+                }}
+              >
+                <IconArrowRightCircle className={"h-7 w-7"} />
+              </button>
+            ) : (
+              <button
+                onClick={(e) => {
+                  handleNextPage();
+                  scrollToTop();
+                }}
+              >
+                <IconArrowRightCircle className={"h-7 w-7"} />
+              </button>
+            )}
           </div>
         </div>
       </div>

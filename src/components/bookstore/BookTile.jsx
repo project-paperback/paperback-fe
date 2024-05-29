@@ -11,7 +11,7 @@ const BookTile = (props) => {
           <img src={props.imageLinks[1]} alt="" className="shadow-xl" />
         </div>
         <div className="quick-actions bg-white bg-opacity-[.8] w-full flex flex-col gap-2 p-2 absolute">
-          <Link
+          <div
             className="py-1 flex justify-center items-center h-[4rem]"
             onClick={() => {
               console.log("hello");
@@ -20,7 +20,7 @@ const BookTile = (props) => {
             <div className="hover:opacity-[0.6] transition-all duration-[200ms]">
               Quick View
             </div>
-          </Link>
+          </div>
         </div>
       </NavLink>
       {/* Image container end */}

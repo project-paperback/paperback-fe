@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export function useFetchData(url, id, currentPage) {
-  console.log(currentPage);
   const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
@@ -16,13 +15,15 @@ export function useFetchData(url, id, currentPage) {
     const fetchData = async () => {
       try {
         const apiUrl = buildUrl;
+
         const response = await axios.get(apiUrl);
         const data = response.data;
+
         setData(data);
-        // console.log(data);
 
         setIsPending(false);
       } catch (error) {
+        console.log(error);
         setError(error);
         setIsPending(false);
       }
