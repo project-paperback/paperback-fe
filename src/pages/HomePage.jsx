@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext, sendToBasket } from "../utilities_&_custom_hooks/General";
+import { UserContext } from "../utilities_&_custom_hooks/General";
 import axios from "axios";
 
 import BookTile from "../components/bookstore/BookTile";
@@ -50,7 +50,8 @@ export function HomePage(props) {
       .get("https://paperback-vy73.onrender.com/api/books")
       .then(({ data }) => {
         setIsPending(false);
-        setCarouselBooks(Array.from(data.books));
+
+        setCarouselBooks(Array.from(data.books.books));
       });
   }, []);
 
@@ -165,7 +166,7 @@ export function HomePage(props) {
                 THERE'S NO <br /> SUCH THING AS TOO MANY BOOKS
               </h2>
               <Link
-                to="bookstore"
+                to="/bookstore?page=1"
                 className="button-style text-[1.2rem] w-fit mx-auto py-2 px-6 mt-[3rem] hover:bg-white hover:text-[#023047] transition-all duration-300"
               >
                 Bookstore

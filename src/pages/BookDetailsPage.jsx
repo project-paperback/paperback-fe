@@ -6,11 +6,12 @@ import { BasketWarningModal } from "../components/SmallComponents";
 export function BookDetailsPage() {
   const pageNumber = "";
   const { book_id } = useParams();
-  const { data, isPending, error } = useFetchData(
+  const { data, dataLength, isPending, error } = useFetchData(
     "https://paperback-vy73.onrender.com/api/books",
     book_id,
     pageNumber
   );
+
   const { itemSent, errorInBasket, sendToBasket, setErrorInBasket } =
     useSendToBasket();
   return (
