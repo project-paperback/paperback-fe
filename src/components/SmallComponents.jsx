@@ -1,5 +1,6 @@
 import axios from "axios";
 import { IconMinus, IconPlus } from "./Icons";
+import { useState } from "react";
 
 export function InputField(props) {
   return (
@@ -120,6 +121,31 @@ export function PurchaseSummary(props) {
       >
         Checkout
       </button>
+    </div>
+  );
+}
+
+export function Dropdown() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div
+      className="dropdown"
+      onMouseOver={() => {
+        setIsOpen(true);
+      }}
+      onMouseOut={() => {
+        setIsOpen(false);
+      }}
+    >
+      <button className="dropbtn">Hover me</button>
+      {isOpen && (
+        <div className="dropdown-content">
+          <a href="#option1">Option 1</a>
+          <a href="#option2">Option 2</a>
+          <a href="#option3">Option 3</a>
+        </div>
+      )}
     </div>
   );
 }
