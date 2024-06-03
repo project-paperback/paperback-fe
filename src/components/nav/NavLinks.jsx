@@ -21,30 +21,7 @@ const NavigationLinks = (props) => {
       <NavLink className="hover:opacity-[0.7]  hidden lg:block" to="contact">
         Contact
       </NavLink>
-      <Dropdown />
-      <div className="items-center *:ease-in *:duration-300 gap-[6px] hidden lg:inline-flex">
-        <IconProfile />
-
-        {!user ? (
-          <NavLink className="hover:opacity-[0.7] " to="sign_in">
-            Sign In
-          </NavLink>
-        ) : (
-          <Link
-            className="text-[#023047] hover:opacity-[0.7]"
-            onClick={() => {
-              axios
-                .post("https://paperback-vy73.onrender.com/api/sign_out")
-                .then(() => {
-                  props.setUser(null);
-                  localStorage.clear();
-                });
-            }}
-          >
-            Sign Out
-          </Link>
-        )}
-      </div>
+      <Dropdown setUser={props.setUser} />
       {!user ? (
         <button disabled={true}>
           {" "}
