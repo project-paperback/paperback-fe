@@ -35,7 +35,7 @@ export function BookDetailsPage() {
                   <NavLink to={"/"}>Home/</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/bookstore"}>Bookstore/</NavLink>
+                  <NavLink to={"/bookstore?page=1"}>Bookstore/</NavLink>
                 </li>
                 <li>
                   <NavLink>Book description</NavLink>

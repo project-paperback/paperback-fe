@@ -6,7 +6,7 @@ import BookTile from "../components/bookstore/BookTile";
 import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
 import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
 import { BasketWarningModal } from "../components/SmallComponents";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export function BookstorePage() {
   const topRef = useRef(null);
@@ -85,27 +85,86 @@ export function BookstorePage() {
           <br />
           BOOKSTORE
         </h2>
-        <div className="gallery-grid justify-center">
-          {" "}
-          {isPending ? (
-            <div className="absolute top-0 bottom-0  w-full h-[80vh] bg-white flex justify-center content-center">
-              <span className="loading loading-spinner loading-lg "></span>
+
+        <div className="flex">
+          {/* Filters */}
+          <form className="w-[20%]  mr-8 flex flex-col gap-2 ">
+            <h2 className="roboto-regular border-[#778da9] border-b-[1px] pb-2 text-2xl ">
+              Filter by
+            </h2>
+
+            <div className="collapse rounded-none border-[#778da9] border-b-[1px]">
+              <input type="checkbox" />
+              <div className="collapse-title text-[1rem] font-medium">
+                <h2 className="roboto-regular">Publisher</h2>
+              </div>
+              <div className="collapse-content">
+                <div className="flex flex-row">
+                  <input
+                    type="checkbox"
+                    defaultChecked
+                    id="routledge"
+                    className="checkbox h-[1rem] w-[1rem] mr-2 my-auto border-[#778da9] [--chkbg:oklch(var(--a))] [--chkfg:oklch(var(--p))]"
+                  />
+                  <label for="routledge">Routledge</label>
+                </div>
+              </div>
             </div>
-          ) : data?.books ? (
-            data.books.books.map((book) => (
-              <BookTile
-                title={book.title}
-                imageLinks={book.imageLinks}
-                authors={book.authors}
-                price={book.price}
-                key={book._id}
-                bookId={book._id}
-                sendToBasket={sendToBasket}
-              />
-            ))
-          ) : (
-            <Navigate to={"/bookstore?page=1"} />
-          )}
+            <div className="collapse rounded-none border-[#778da9] border-b-[1px]">
+              <input type="checkbox" />
+              <div className="collapse-title text-[1rem] font-medium">
+                <h2 className="roboto-regular">Categories</h2>
+              </div>
+
+              <div className="collapse-content">
+                <p>Categories</p>
+              </div>
+            </div>
+            <div className="collapse rounded-none border-[#778da9] border-b-[1px]">
+              <input type="checkbox" />
+              <div className="collapse-title text-[1rem] font-medium">
+                <h2 className="roboto-regular"> Year</h2>
+              </div>
+
+              <div className="collapse-content">
+                <p> year_from, year_to</p>
+              </div>
+            </div>
+            <div className="collapse rounded-none border-[#778da9] border-b-[1px]">
+              <input type="checkbox" />
+              <div className="collapse-title text-[1rem] font-medium">
+                <h2 className="roboto-regular"> Price</h2>
+              </div>
+
+              <div className="collapse-content">
+                <p> , min_price, max_price,</p>
+              </div>
+            </div>
+          </form>
+          {/* End filters */}
+
+          <div className="gallery-grid justify-center">
+            {" "}
+            {isPending ? (
+              <div className="absolute top-0 bottom-0  w-full h-[80vh] bg-white flex justify-center content-center">
+                <span className="loading loading-spinner loading-lg "></span>
+              </div>
+            ) : data?.books ? (
+              data.books.books.map((book) => (
+                <BookTile
+                  title={book.title}
+                  imageLinks={book.imageLinks}
+                  authors={book.authors}
+                  price={book.price}
+                  key={book._id}
+                  bookId={book._id}
+                  sendToBasket={sendToBasket}
+                />
+              ))
+            ) : (
+              <Navigate to={"/bookstore?page=1"} />
+            )}
+          </div>
         </div>
         <div className="flex justify-center items-center  h-9 py-7 ">
           <div className="flex  gap-4">
