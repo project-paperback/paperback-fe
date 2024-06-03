@@ -1,5 +1,8 @@
 import axios from "axios";
-import { IconMinus, IconPlus } from "./Icons";
+import { IconMinus, IconPlus, IconProfile } from "./Icons";
+import { useContext, useState } from "react";
+import { UserContext } from "../utilities_&_custom_hooks/General";
+import { Link, NavLink } from "react-router-dom";
 
 export function InputField(props) {
   return (
@@ -120,6 +123,48 @@ export function PurchaseSummary(props) {
       >
         Checkout
       </button>
+    </div>
+  );
+}
+export function Dropdown(props) {
+  const user = useContext(UserContext);
+  return (
+    <div className="dropdown dropdown-hover z-[11] hidden lg:block">
+      <div tabIndex={0} role="button" className="flex items-center gap-1 m-1">
+        <IconProfile />
+        {!user ? <p>Profile</p> : <NavLink to="profile_page">Profile</NavLink>}
+      </div>
+      <ul
+        tabIndex={0}
+        className="dropdown-content absolute left-[-50px] z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        {!user ? (
+          <div></div>
+        ) : (
+          <li>
+            <a href="/profile_page">My Account</a>
+          </li>
+        )}
+
+        <li>
+          {!user ? (
+            <a href="/sign_in">Sign In</a>
+          ) : (
+            <Link
+              onClick={() => {
+                axios
+                  .post("https://paperback-vy73.onrender.com/api/sign_out")
+                  .then(() => {
+                    props.setUser(null);
+                    localStorage.clear();
+                  });
+              }}
+            >
+              Sign Out
+            </Link>
+          )}
+        </li>
+      </ul>
     </div>
   );
 }
