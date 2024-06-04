@@ -68,14 +68,14 @@ export function BookstorePage() {
         BOOKSTORE
       </h2>
 
-      <div className="flex relative">
+      <div className="flex relative justify-center">
         <div className="gallery-grid justify-center ">
           {data.msg === "More books coming soon!" && (
             <div className="w-[100%] h-[100%] my-auto  absolute flex flex-col justify-center items-center text-[2rem]">
               <p>{data.msg}</p>
             </div>
           )}
-          <div className="grid-filter">
+          <div className="grid-filter mx-auto">
             <Filters />
           </div>
           {isPending ? (
