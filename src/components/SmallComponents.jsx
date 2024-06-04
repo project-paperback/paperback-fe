@@ -129,7 +129,7 @@ export function PurchaseSummary(props) {
 export function Dropdown(props) {
   const user = useContext(UserContext);
   return (
-    <div className="dropdown dropdown-hover z-[11] hidden lg:block">
+    <div className="dropdown dropdown-hover z-[11] hidden lg:block ">
       <div tabIndex={0} role="button" className="flex items-center gap-1 m-1">
         <IconProfile />
         {!user ? <p>Profile</p> : <NavLink to="profile_page">Profile</NavLink>}
@@ -141,16 +141,19 @@ export function Dropdown(props) {
         {!user ? (
           <div></div>
         ) : (
-          <li>
+          <li className="text-[1rem]">
             <a href="/profile_page">My Account</a>
           </li>
         )}
 
         <li>
           {!user ? (
-            <a href="/sign_in">Sign In</a>
+            <a href="/sign_in" className="text-[1rem]">
+              Sign In
+            </a>
           ) : (
             <Link
+              className="text-[1rem]"
               onClick={() => {
                 axios
                   .post("https://paperback-vy73.onrender.com/api/sign_out")

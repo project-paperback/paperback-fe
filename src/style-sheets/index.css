@@ -66,9 +66,12 @@ h4,
 .gallery-grid {
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
 }
-
+.grid-filter {
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
 .basket-tile-item {
   grid-template-columns: repeat(2, 1fr);
   padding-block: 2rem;

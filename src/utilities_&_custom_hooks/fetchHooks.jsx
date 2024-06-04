@@ -1,20 +1,46 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export function useFetchData(url, id, currentPage) {
+  console.log(id);
   const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
-  let buildUrl = "";
+
+  const [searchParams] = useSearchParams();
+
+  let secondURL = url; // Initialize with the base URL
+
+  // Append query parameters conditionally
   if (id) {
-    buildUrl = `${url}/${id}`;
+    secondURL += `/${id}`;
   } else if (currentPage) {
-    buildUrl = `${url}?page_number=${currentPage}`;
+    secondURL += `?page_number=${currentPage}`;
   }
+  if (searchParams.get("publisher")) {
+    const encodedPublisher = searchParams
+      .get("publisher")
+      .split(",")
+      .map((item) => item.split(" ").join("+"))
+      .join("%2C");
+    const publisher = encodedPublisher;
+    secondURL += `&publisher=${publisher}`;
+  }
+  if (searchParams.get("category")) {
+    const encodedCategory = searchParams
+      .get("category")
+      .split(",")
+      .map((item) => item.split(" ").join("+"))
+      .join("%2C");
+    const category = encodedCategory;
+    secondURL += `&category=${category}`;
+  }
+  console.log(secondURL);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = buildUrl;
+        const apiUrl = secondURL;
 
         const response = await axios.get(apiUrl);
         const data = response.data;
@@ -23,14 +49,13 @@ export function useFetchData(url, id, currentPage) {
 
         setIsPending(false);
       } catch (error) {
-        console.log(error);
         setError(error);
         setIsPending(false);
       }
     };
 
     fetchData();
-  }, [url, id, currentPage]);
+  }, [url, id, currentPage, searchParams]);
 
   return { data, isPending, error };
 }
