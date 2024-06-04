@@ -96,6 +96,23 @@ export function BasketWarningModal(props) {
   );
 }
 
+export function QuickViewModal(props) {
+  return (
+    <div className="bg-gray-700 bg-opacity-[.80] fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center m-auto z-[20]">
+      <div className="bg-white border-[5px] border-[#023047] w-[80%] h-[600px]">
+        <h1>Quick View Modal</h1>
+        <button
+          onClick={() => {
+            props.setIsQuickViewOpen(!props.isQuickViewOpen);
+          }}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function PurchaseSummary(props) {
   return (
     <div className="flex flex-col gap-4">

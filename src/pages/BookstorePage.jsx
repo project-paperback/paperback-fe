@@ -5,7 +5,10 @@ import BookTile from "../components/bookstore/BookTile";
 
 import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
 import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
-import { BasketWarningModal } from "../components/SmallComponents";
+import {
+  BasketWarningModal,
+  QuickViewModal,
+} from "../components/SmallComponents";
 import { Link, Navigate } from "react-router-dom";
 
 export function BookstorePage() {
@@ -25,6 +28,7 @@ export function BookstorePage() {
     id,
     currentPage
   );
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   useEffect(() => {
     let timer;
 
@@ -71,6 +75,12 @@ export function BookstorePage() {
   } else {
     return (
       <div className="relative">
+        {isQuickViewOpen && (
+          <QuickViewModal
+            isQuickViewOpen={isQuickViewOpen}
+            setIsQuickViewOpen={setIsQuickViewOpen}
+          />
+        )}
         {errorInBasket && (
           <BasketWarningModal
             setErrorInBasket={setErrorInBasket}
@@ -159,6 +169,8 @@ export function BookstorePage() {
                   key={book._id}
                   bookId={book._id}
                   sendToBasket={sendToBasket}
+                  isQuickViewOpen={isQuickViewOpen}
+                  setIsQuickViewOpen={setIsQuickViewOpen}
                 />
               ))
             ) : (
