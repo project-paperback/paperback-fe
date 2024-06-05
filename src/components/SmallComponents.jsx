@@ -1,8 +1,13 @@
 import axios from "axios";
 import { IconMinus, IconPlus, IconProfile } from "./Icons";
 import { useContext, useState } from "react";
-import { UserContext } from "../utilities_&_custom_hooks/General";
+import {
+  UserContext,
+  usePagination,
+} from "../utilities_&_custom_hooks/General";
 import { Link, NavLink } from "react-router-dom";
+import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
+import BookTile from "./bookstore/BookTile";
 
 export function InputField(props) {
   return (
@@ -97,11 +102,34 @@ export function BasketWarningModal(props) {
 }
 
 export function QuickViewModal(props) {
+  // const id = "";
+  // let { currentPage, handleNextPage, handlePrevPage } = usePagination();
+  // const { data, isPending, error } = useFetchData(
+  //   "https://paperback-vy73.onrender.com/api/books",
+  //   id,
+  //   currentPage
+  // );
+  const booksArray = props.data.books.books;
+  const selectedBook = booksArray.filter(
+    (book) => book._id === props.bookId
+  )[0];
+
   return (
     <div className="bg-gray-700 bg-opacity-[.80] fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center m-auto z-[20]">
-      <div className="bg-white border-[5px] border-[#023047] w-[80%] h-[600px]">
-        <h1>Quick View Modal</h1>
+      <div className="bg-white border-[5px] border-[#023047] w-[900px] h-[600px] flex p-6 relative">
+        <div className="bg-gray-200 m-auto py-10 px-20">
+          <img
+            src={selectedBook.imageLinks[0]}
+            alt=""
+            className="shadow-xl w-[450px] m-auto"
+          />
+        </div>
+        <div className="p-2 pt-10">
+          <h1>{selectedBook.title}</h1>
+          <p>£{selectedBook.price}</p>
+        </div>
         <button
+          className="absolute top-4 right-4"
           onClick={() => {
             props.setIsQuickViewOpen(!props.isQuickViewOpen);
           }}

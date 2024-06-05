@@ -13,7 +13,7 @@ import { Link, Navigate } from "react-router-dom";
 
 export function BookstorePage() {
   const topRef = useRef(null);
-
+  const [bookId, setBookId] = useState("");
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -79,6 +79,8 @@ export function BookstorePage() {
           <QuickViewModal
             isQuickViewOpen={isQuickViewOpen}
             setIsQuickViewOpen={setIsQuickViewOpen}
+            data={data}
+            bookId={bookId}
           />
         )}
         {errorInBasket && (
@@ -171,6 +173,7 @@ export function BookstorePage() {
                   sendToBasket={sendToBasket}
                   isQuickViewOpen={isQuickViewOpen}
                   setIsQuickViewOpen={setIsQuickViewOpen}
+                  setBookId={setBookId}
                 />
               ))
             ) : (

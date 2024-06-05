@@ -13,7 +13,7 @@ const BookTile = (props) => {
           className="quick-actions bg-white bg-opacity-[.8] w-full flex flex-col gap-2 p-2 absolute"
           onClick={() => {
             props.setIsQuickViewOpen(true);
-            // console.log(props);
+            props.setBookId(props.bookId);
           }}
         >
           <button className="py-1 flex justify-center items-center h-[4rem]">
