@@ -48,12 +48,15 @@ export function HomePage(props) {
   const [carouselBooks, setCarouselBooks] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [bookId, setBookId] = useState("");
+  const [data, setData] = useState("");
 
   useEffect(() => {
     axios
       .get("https://paperback-vy73.onrender.com/api/books")
       .then(({ data }) => {
         setIsPending(false);
+        setData(data);
 
         setCarouselBooks(Array.from(data.books.books));
       });
@@ -65,6 +68,8 @@ export function HomePage(props) {
         <QuickViewModal
           isQuickViewOpen={isQuickViewOpen}
           setIsQuickViewOpen={setIsQuickViewOpen}
+          data={data}
+          bookId={bookId}
         />
       )}
       {errorInBasket && (
@@ -122,6 +127,7 @@ export function HomePage(props) {
                       buttonStyle={"button-style"}
                       isQuickViewOpen={isQuickViewOpen}
                       setIsQuickViewOpen={setIsQuickViewOpen}
+                      setBookId={setBookId}
                     />
                   </div>
                 ))}
@@ -167,6 +173,7 @@ export function HomePage(props) {
                       buttonStyle={"button-style"}
                       isQuickViewOpen={isQuickViewOpen}
                       setIsQuickViewOpen={setIsQuickViewOpen}
+                      setBookId={setBookId}
                     />
                   </div>
                 ))}

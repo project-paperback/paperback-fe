@@ -108,10 +108,13 @@ h4,
 }
 
 .card img {
-  width: 25rem;
   aspect-ratio: 2/3;
   object-fit: cover; /*prevents images from stretch*/
   margin-inline: auto;
+}
+
+.quick-view img {
+  aspect-ratio: 2/3;
 }
 
 .image-container {
