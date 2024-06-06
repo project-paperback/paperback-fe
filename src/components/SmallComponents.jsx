@@ -1,5 +1,13 @@
 import axios from "axios";
-import { IconClose, IconMinus, IconPlus, IconProfile } from "./Icons";
+import {
+  IconCalendar,
+  IconClose,
+  IconHome,
+  IconMinus,
+  IconPages,
+  IconPlus,
+  IconProfile,
+} from "./Icons";
 import { useContext, useState } from "react";
 import {
   UserContext,
@@ -133,17 +141,20 @@ export function QuickViewModal(props) {
           <div className="leading-[80px]">
             <h1 className="leading-7">{selectedBook.title}</h1>
             <p className="font-semibold">£{selectedBook.price.toFixed(2)}</p>
-            <div className="flex text-[0.9rem] gap-6 text-nowrap">
-              <div className="flex flex-col leading-[30px]">
+            <div className="flex text-[0.9rem] text-nowrap justify-center">
+              <div className="flex flex-col leading-[30px] items-center w-[33%]">
                 <p className="font-thin">Print Length</p>
+                <IconPages width="2em" height="2em" />
                 <p>{selectedBook.pageCount} Pages</p>
               </div>
-              <div className="flex flex-col leading-[30px]">
+              <div className="flex flex-col leading-[30px] items-center w-[33%]">
                 <p className="font-thin">Publication Date</p>
+                <IconCalendar width="2em" height="2em" />
                 <p>{selectedBook.publishedDate}</p>
               </div>
-              <div className="flex flex-col leading-[30px]">
+              <div className="flex flex-col leading-[30px] items-center w-[33%]">
                 <p className="font-thin">Publisher</p>
+                <IconHome width="2em" height="2em" />
                 <p className="text-wrap line-clamp-1 hover:line-clamp-3">
                   {selectedBook.publisher}
                 </p>
