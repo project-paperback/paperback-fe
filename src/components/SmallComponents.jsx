@@ -117,6 +117,12 @@ export function QuickViewModal(props) {
   )[0];
   const { itemSent, errorInBasket, sendToBasket, setErrorInBasket } =
     useSendToBasket();
+
+  let authors = "";
+  selectedBook.authors.forEach((author) => {
+    authors += author + ", ";
+  });
+
   return (
     <div className="bg-gray-700 bg-opacity-[.80] fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center m-auto z-[20]">
       {errorInBasket && (
@@ -140,8 +146,11 @@ export function QuickViewModal(props) {
         <div className="p-6 pt-10 text-[1.3rem] flex flex-col w-full">
           <div className="leading-[80px]">
             <h1 className="leading-7">{selectedBook.title}</h1>
+            <h2 className="text-[1rem] py-3 text-wrap leading-5">
+              {authors.slice(0, -2)}
+            </h2>
             <p className="font-semibold">£{selectedBook.price.toFixed(2)}</p>
-            <div className="flex text-[0.9rem] text-nowrap justify-center border-y-[1px] border-gray-300 p-2">
+            <div className="text-center flex text-[0.9rem] text-nowrap justify-center border-y-[1px] border-gray-300 p-2">
               <div className="flex flex-col leading-[30px] items-center w-[33%]">
                 <p className="font-thin">Print Length</p>
                 <IconPages width="2em" height="2em" />
@@ -161,9 +170,9 @@ export function QuickViewModal(props) {
               </div>
             </div>
           </div>
-          <div className="mt-40 leading-10">
+          <div className="mt-40 leading-10 absolute bottom-14 w-[430px]">
             <button
-              className=" text-center bg-[#023047] text-white w-full mx-auto hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3 mb-[5px]"
+              className="text-center bg-[#023047] text-white w-full mx-auto hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3 mb-[5px]"
               onClick={() => {
                 sendToBasket(selectedBook._id);
               }}
