@@ -1,8 +1,22 @@
 import axios from "axios";
-import { IconMinus, IconPlus, IconProfile } from "./Icons";
+import {
+  IconCalendar,
+  IconClose,
+  IconHome,
+  IconMinus,
+  IconPages,
+  IconPlus,
+  IconProfile,
+} from "./Icons";
 import { useContext, useState } from "react";
-import { UserContext } from "../utilities_&_custom_hooks/General";
+import {
+  UserContext,
+  usePagination,
+} from "../utilities_&_custom_hooks/General";
 import { Link, NavLink } from "react-router-dom";
+import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
+import BookTile from "./bookstore/BookTile";
+import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
 
 export function InputField(props) {
   return (
@@ -91,6 +105,87 @@ export function BasketWarningModal(props) {
             Close
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function QuickViewModal(props) {
+  const booksArray = props.data.books.books;
+  const selectedBook = booksArray.filter(
+    (book) => book._id === props.bookId
+  )[0];
+  const { itemSent, errorInBasket, sendToBasket, setErrorInBasket } =
+    useSendToBasket();
+  return (
+    <div className="bg-gray-700 bg-opacity-[.80] fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center m-auto z-[20]">
+      {errorInBasket && (
+        <BasketWarningModal
+          setErrorInBasket={setErrorInBasket}
+          msg={errorInBasket.response?.data?.msg}
+        />
+      )}
+      <div className="bg-white border-[2px] border-[#023047] w-[980px] h-[600px] flex p-6 relative quick-view">
+        <div className="self-center">
+          <NavLink to={`/bookstore/book-details/${selectedBook._id}`}>
+            <div className="bg-gray-100 py-10 px-20 w-[450px] h-[515px]">
+              <img
+                src={selectedBook.imageLinks[1]}
+                alt="Book Cover"
+                className="shadow-xl"
+              />
+            </div>
+          </NavLink>
+        </div>
+        <div className="p-6 pt-10 text-[1.3rem] flex flex-col w-full">
+          <div className="leading-[80px]">
+            <h1 className="leading-7">{selectedBook.title}</h1>
+            <p className="font-semibold">£{selectedBook.price.toFixed(2)}</p>
+            <div className="flex text-[0.9rem] text-nowrap justify-center border-y-[1px] border-gray-300 p-2">
+              <div className="flex flex-col leading-[30px] items-center w-[33%]">
+                <p className="font-thin">Print Length</p>
+                <IconPages width="2em" height="2em" />
+                <p>{selectedBook.pageCount} Pages</p>
+              </div>
+              <div className="flex flex-col leading-[30px] items-center w-[33%]">
+                <p className="font-thin">Publication Date</p>
+                <IconCalendar width="2em" height="2em" />
+                <p>{selectedBook.publishedDate}</p>
+              </div>
+              <div className="flex flex-col leading-[30px] items-center w-[33%]">
+                <p className="font-thin">Publisher</p>
+                <IconHome width="2em" height="2em" />
+                <p className="text-wrap line-clamp-1 hover:line-clamp-3">
+                  {selectedBook.publisher}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-40 leading-10">
+            <button
+              className=" text-center bg-[#023047] text-white w-full mx-auto hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3 mb-[5px]"
+              onClick={() => {
+                sendToBasket(selectedBook._id);
+              }}
+            >
+              Add to basket
+            </button>
+            <NavLink
+              to={`/bookstore/book-details/${selectedBook._id}`}
+              className={"text-[1rem] underline"}
+            >
+              View More Details
+            </NavLink>
+          </div>
+        </div>
+        <button
+          className="absolute top-4 right-4"
+          onClick={() => {
+            props.setIsQuickViewOpen(!props.isQuickViewOpen);
+          }}
+        >
+          <IconClose height="1.7em" width="1.7em" />
+        </button>
       </div>
     </div>
   );

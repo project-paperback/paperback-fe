@@ -3,32 +3,35 @@ const BookTile = (props) => {
   return (
     <div className={`card`} id={props.bookId}>
       {/* Image container start */}
-      <NavLink
-        className="image-container relative"
-        to={`/bookstore/book-details/${props.bookId}`}
-      >
-        <div className="px-10 py-4 bg-gray-100">
-          <img src={props.imageLinks[1]} alt="" className="shadow-xl" />
-        </div>
-        <div className="quick-actions bg-white bg-opacity-[.8] w-full flex flex-col gap-2 p-2 absolute">
-          <div
-            className="py-1 flex justify-center items-center h-[4rem]"
-            onClick={() => {
-              console.log("hello");
-            }}
-          >
+      <div className="image-container relative">
+        <NavLink to={`/bookstore/book-details/${props.bookId}`}>
+          <div className="px-10 py-4 bg-gray-100">
+            <img src={props.imageLinks[1]} alt="" className="shadow-xl" />
+          </div>
+        </NavLink>
+        <div
+          className="quick-actions bg-white bg-opacity-[.8] w-full flex flex-col gap-2 p-2 absolute"
+          onClick={() => {
+            props.setIsQuickViewOpen(true);
+            props.setBookId(props.bookId);
+          }}
+        >
+          <button className="py-1 flex justify-center items-center h-[4rem]">
             <div className="hover:opacity-[0.6] transition-all duration-[200ms]">
               Quick View
             </div>
-          </div>
+          </button>
         </div>
-      </NavLink>
+      </div>
       {/* Image container end */}
       {/* Info book container start */}
       <div
         className={`book-info-card py-4 text-center flex  flex-col gap-2 ${props.textColor}`}
       >
-        <NavLink to={`book-details`} className="line-clamp-1 text-lg">
+        <NavLink
+          to={`/bookstore/book-details/${props.bookId}`}
+          className="line-clamp-1 text-lg"
+        >
           {props.title}
         </NavLink>
         <p className="line-clamp-1 text-xs">{props.authors}</p>

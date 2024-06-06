@@ -7,7 +7,10 @@ import BookTile from "../components/bookstore/BookTile";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
-import { BasketWarningModal } from "../components/SmallComponents";
+import {
+  BasketWarningModal,
+  QuickViewModal,
+} from "../components/SmallComponents";
 import { Link } from "react-router-dom";
 
 const responsive = {
@@ -44,12 +47,16 @@ export function HomePage(props) {
   const salutations = useContext(UserContext);
   const [carouselBooks, setCarouselBooks] = useState([]);
   const [isPending, setIsPending] = useState(true);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [bookId, setBookId] = useState("");
+  const [data, setData] = useState("");
 
   useEffect(() => {
     axios
       .get("https://paperback-vy73.onrender.com/api/books")
       .then(({ data }) => {
         setIsPending(false);
+        setData(data);
 
         setCarouselBooks(Array.from(data.books.books));
       });
@@ -57,6 +64,14 @@ export function HomePage(props) {
 
   return (
     <div className="relative">
+      {isQuickViewOpen && (
+        <QuickViewModal
+          isQuickViewOpen={isQuickViewOpen}
+          setIsQuickViewOpen={setIsQuickViewOpen}
+          data={data}
+          bookId={bookId}
+        />
+      )}
       {errorInBasket && (
         <BasketWarningModal
           setErrorInBasket={setErrorInBasket}
@@ -83,7 +98,7 @@ export function HomePage(props) {
               </h2>
             </div>
 
-            <div className="carousel-holder">
+            <div className="carousel-holder z-0">
               <Carousel
                 swipeable={true}
                 draggable={true}
@@ -110,6 +125,9 @@ export function HomePage(props) {
                       sendToBasket={sendToBasket}
                       textColor={"text-white"}
                       buttonStyle={"button-style"}
+                      isQuickViewOpen={isQuickViewOpen}
+                      setIsQuickViewOpen={setIsQuickViewOpen}
+                      setBookId={setBookId}
                     />
                   </div>
                 ))}
@@ -126,7 +144,7 @@ export function HomePage(props) {
                 </h2>
               </div>
             </div>
-            <div className="recommended-books-carousel bg-[#023047] ">
+            <div className="recommended-books-carousel bg-[#023047]">
               <Carousel
                 swipeable={true}
                 draggable={true}
@@ -141,7 +159,7 @@ export function HomePage(props) {
                 removeArrowOnDeviceType={["tablet", "lgTablet", "mobile"]}
                 // dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
-                className="mx-[5%] lg:px-14 px-[12%] lg:w-[90%]"
+                className="mx-[5%] lg:px-14 px-[12%] lg:w-[90%] z-0"
               >
                 {carouselBooks.map((book, index) => (
                   <div className="w-[70%]" key={index}>
@@ -153,6 +171,9 @@ export function HomePage(props) {
                       sendToBasket={sendToBasket}
                       textColor={"text-white"}
                       buttonStyle={"button-style"}
+                      isQuickViewOpen={isQuickViewOpen}
+                      setIsQuickViewOpen={setIsQuickViewOpen}
+                      setBookId={setBookId}
                     />
                   </div>
                 ))}
