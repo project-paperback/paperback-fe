@@ -125,7 +125,7 @@ export function QuickViewModal(props) {
           msg={errorInBasket.response?.data?.msg}
         />
       )}
-      <div className="bg-white border-[5px] border-[#023047] w-[980px] h-[600px] flex p-6 relative quick-view">
+      <div className="bg-white border-[2px] border-[#023047] w-[980px] h-[600px] flex p-6 relative quick-view">
         <div className="self-center">
           <NavLink to={`/bookstore/book-details/${selectedBook._id}`}>
             <div className="bg-gray-100 py-10 px-20 w-[450px] h-[500px]">
@@ -141,7 +141,7 @@ export function QuickViewModal(props) {
           <div className="leading-[80px]">
             <h1 className="leading-7">{selectedBook.title}</h1>
             <p className="font-semibold">£{selectedBook.price.toFixed(2)}</p>
-            <div className="flex text-[0.9rem] text-nowrap justify-center">
+            <div className="flex text-[0.9rem] text-nowrap justify-center border-y-[1px] border-gray-300 p-2">
               <div className="flex flex-col leading-[30px] items-center w-[33%]">
                 <p className="font-thin">Print Length</p>
                 <IconPages width="2em" height="2em" />
