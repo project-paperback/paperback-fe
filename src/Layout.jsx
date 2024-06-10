@@ -15,7 +15,7 @@ export function Layout(props) {
     }
   }, [isOpen]);
   return (
-    <div className="relative">
+    <div className="relative flex flex-col justify-between h-screen ">
       <header className="lg:px-10">
         <NavBar
           setUser={props.setUser}
@@ -23,15 +23,14 @@ export function Layout(props) {
           setIsOpen={setIsOpen}
           divStyles={divStyles}
         />
-      </header>
-      <main className="lg:px-10">
         <MobileMenu
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           divStyles={divStyles}
           setUser={props.setUser}
         />
-
+      </header>
+      <main className="lg:px-10">
         <Outlet />
       </main>
       <div className="mt-[8rem]">

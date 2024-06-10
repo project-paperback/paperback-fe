@@ -21,10 +21,6 @@ export function usePagination() {
   return { currentPage, handleNextPage, handlePrevPage };
 }
 
-export function useFilters() {
-  const [filterParans, setFilterParams] = useSearchParams();
-}
-
 export function sendToBasket(id) {
   console.log(id);
   const sendTo = `https://paperback-vy73.onrender.com/api/add_to_basket`;
