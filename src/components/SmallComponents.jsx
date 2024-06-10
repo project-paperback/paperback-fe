@@ -9,13 +9,9 @@ import {
   IconProfile,
 } from "./Icons";
 import { useContext, useState } from "react";
-import {
-  UserContext,
-  usePagination,
-} from "../utilities_&_custom_hooks/General";
+import { UserContext } from "../utilities_&_custom_hooks/General";
 import { Link, NavLink } from "react-router-dom";
-import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
-import BookTile from "./bookstore/BookTile";
+
 import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
 
 export function InputField(props) {
@@ -85,12 +81,7 @@ export function IncreaseDecreaseBookQty(props) {
 
 export function BasketWarningModal(props) {
   return (
-    <div
-      className="bg-gray-700 bg-opacity-[.80] text-white z-[6] fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center"
-      // onClick={() => {
-      //   props.setErrorInBasket();
-      // }}
-    >
+    <div className="bg-gray-700 bg-opacity-[.80] text-white z-[6] fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center">
       {/* Added Tailwind CSS classes for modal animation */}
       <div className=" border-[#023047] text-[#023047] py-12 px-6 text-center border-[10px] lG:w-[40%] bg-white flex flex-col gap-8">
         <div>{props.msg}</div>
@@ -123,6 +114,9 @@ export function QuickViewModal(props) {
     authors += author + ", ";
   });
 
+  const [isAdded, setIsAdded] = useState(false);
+
+  setTimeout(() => setIsAdded(false), 2000);
   return (
     <div className="bg-gray-700 bg-opacity-[.80] fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center m-auto z-[20]">
       {errorInBasket && (
@@ -172,12 +166,15 @@ export function QuickViewModal(props) {
           </div>
           <div className="mt-40 leading-10 absolute bottom-14 w-[430px]">
             <button
-              className="text-center bg-[#023047] text-white w-full mx-auto hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3 mb-[5px]"
+              className={`text-center bg-[#023047] text-white w-full mx-auto hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3 mb-[5px]  ${
+                isAdded ? "send-to-basket" : ""
+              }`}
               onClick={() => {
                 sendToBasket(selectedBook._id);
+                setIsAdded((isAdded) => !isAdded);
               }}
             >
-              Add to basket
+              {isAdded ? "Sent to Basket" : " Add to basket"}
             </button>
             <NavLink
               to={`/bookstore/book-details/${selectedBook._id}`}
