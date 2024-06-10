@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import NavBar from "./components/nav/NavBar";
 import { useEffect, useState } from "react";
 import MobileMenu from "./components/MobileMenu";
+import { Footer } from "./components/nav/Footer";
 
 export function Layout(props) {
   const [divStyles, setDivStyles] = useState("");
@@ -33,6 +34,9 @@ export function Layout(props) {
 
         <Outlet />
       </main>
+      <div className="mt-[8rem]">
+        <Footer />
+      </div>
     </div>
   );
 }

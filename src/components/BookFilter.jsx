@@ -47,7 +47,7 @@ export function Filters() {
   }, [selectedPublishers, selectedCategories, searchParams]);
 
   return (
-    <form className="mr-8 flex flex-col gap-2">
+    <form className="lg:mr-8 flex flex-col gap-2">
       <h2 className="roboto-regular border-[#778da9] border-b-[1px] pb-2 text-2xl">
         Filter by
       </h2>
