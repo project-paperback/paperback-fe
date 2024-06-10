@@ -101,6 +101,40 @@ export function BasketWarningModal(props) {
   );
 }
 
+export function BookInfo(book) {
+  const selectedBook = book.book;
+  return (
+    <div className="leading-[80px]">
+      <h1 className="text-[1.3rem] leading-7">{selectedBook.title}</h1>
+      <h2 className="text-[1rem] py-3 text-wrap leading-5">
+        {selectedBook.authors.join(", ")}
+      </h2>
+      <p className="text-[1.3rem] font-semibold">
+        £{selectedBook.price.toFixed(2)}
+      </p>
+      <div className="text-center flex text-[0.9rem] text-nowrap justify-center border-y-[1px] border-gray-300 p-2">
+        <div className="flex flex-col leading-[30px] items-center w-[33%]">
+          <p className="font-thin">Print Length</p>
+          <IconPages width="2em" height="2em" />
+          <p>{selectedBook.pageCount} Pages</p>
+        </div>
+        <div className="flex flex-col leading-[30px] items-center w-[33%]">
+          <p className="font-thin">Publication Date</p>
+          <IconCalendar width="2em" height="2em" />
+          <p>{selectedBook.publishedDate}</p>
+        </div>
+        <div className="flex flex-col leading-[30px] items-center w-[33%]">
+          <p className="font-thin">Publisher</p>
+          <IconHome width="2em" height="2em" />
+          <p className="text-wrap line-clamp-1 hover:line-clamp-3">
+            {selectedBook.publisher}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function QuickViewModal(props) {
   const booksArray = props.data.books.books;
   const selectedBook = booksArray.filter(
@@ -108,11 +142,6 @@ export function QuickViewModal(props) {
   )[0];
   const { itemSent, errorInBasket, sendToBasket, setErrorInBasket } =
     useSendToBasket();
-
-  let authors = "";
-  selectedBook.authors.forEach((author) => {
-    authors += author + ", ";
-  });
 
   const [isAdded, setIsAdded] = useState(false);
 
@@ -138,32 +167,7 @@ export function QuickViewModal(props) {
           </NavLink>
         </div>
         <div className="p-6 pt-10 text-[1.3rem] flex flex-col w-full">
-          <div className="leading-[80px]">
-            <h1 className="leading-7">{selectedBook.title}</h1>
-            <h2 className="text-[1rem] py-3 text-wrap leading-5">
-              {authors.slice(0, -2)}
-            </h2>
-            <p className="font-semibold">£{selectedBook.price.toFixed(2)}</p>
-            <div className="text-center flex text-[0.9rem] text-nowrap justify-center border-y-[1px] border-gray-300 p-2">
-              <div className="flex flex-col leading-[30px] items-center w-[33%]">
-                <p className="font-thin">Print Length</p>
-                <IconPages width="2em" height="2em" />
-                <p>{selectedBook.pageCount} Pages</p>
-              </div>
-              <div className="flex flex-col leading-[30px] items-center w-[33%]">
-                <p className="font-thin">Publication Date</p>
-                <IconCalendar width="2em" height="2em" />
-                <p>{selectedBook.publishedDate}</p>
-              </div>
-              <div className="flex flex-col leading-[30px] items-center w-[33%]">
-                <p className="font-thin">Publisher</p>
-                <IconHome width="2em" height="2em" />
-                <p className="text-wrap line-clamp-1 hover:line-clamp-3">
-                  {selectedBook.publisher}
-                </p>
-              </div>
-            </div>
-          </div>
+          <BookInfo book={selectedBook} />
           <div className="mt-40 leading-10 absolute bottom-14 w-[430px]">
             <button
               className={`text-center bg-[#023047] text-white w-full mx-auto hover:bg-opacity-[0.80] transition-all duration-[200ms] py-3 mb-[5px]  ${
