@@ -1,22 +1,19 @@
-import { useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Navigate, useSearchParams } from "react-router-dom";
 // components
 import { usePagination } from "../utilities_&_custom_hooks/General";
 import { IconArrowLeftCircle, IconArrowRightCircle } from "../components/Icons";
 import BookTile from "../components/bookstore/BookTile";
+import { BasketWarningModal } from "../components/SmallComponents";
 import { Filters } from "../components/BookFilter";
 // Custom hooks
 import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
 import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
-import {
-  BasketWarningModal,
-  QuickViewModal,
-} from "../components/SmallComponents";
 
 export function BookstorePage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const topRef = useRef(null);
-  const [bookId, setBookId] = useState("");
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -32,7 +29,7 @@ export function BookstorePage() {
     currentPage,
     searchParams
   );
-  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+
   useEffect(() => {
     let timer;
 
@@ -55,14 +52,6 @@ export function BookstorePage() {
   const hidden = data.msg === "More books coming soon!" ? "hidden" : "block";
   return (
     <div className="relative">
-      {isQuickViewOpen && (
-        <QuickViewModal
-          isQuickViewOpen={isQuickViewOpen}
-          setIsQuickViewOpen={setIsQuickViewOpen}
-          data={data}
-          bookId={bookId}
-        />
-      )}
       {errorInBasket && (
         <BasketWarningModal
           setErrorInBasket={setErrorInBasket}
@@ -80,13 +69,13 @@ export function BookstorePage() {
       </h2>
 
       <div className="flex relative justify-center">
-        <div className="gallery-grid justify-center  ">
+        <div className="gallery-grid justify-center ">
           {data.msg === "More books coming soon!" && (
-            <div className="w-[100%] h-[100%] my-auto  text-[2rem] lg:col-span-3 row-span-3 flex justify-center items-center text-center">
+            <div className="w-[100%] h-[100%] my-auto  absolute flex flex-col justify-center items-center text-[2rem]">
               <p>{data.msg}</p>
             </div>
           )}
-          <div className="grid-filter mx-auto ">
+          <div className="grid-filter mx-auto">
             <Filters />
           </div>
           {isPending ? (
@@ -104,9 +93,6 @@ export function BookstorePage() {
                 key={book._id}
                 bookId={book._id}
                 sendToBasket={sendToBasket}
-                isQuickViewOpen={isQuickViewOpen}
-                setIsQuickViewOpen={setIsQuickViewOpen}
-                setBookId={setBookId}
               />
             ))
           ) : (

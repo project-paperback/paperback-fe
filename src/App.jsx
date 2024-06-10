@@ -15,10 +15,10 @@ import { SignInPage } from "./pages/SignInPage";
 import { UserContext } from "./utilities_&_custom_hooks/General";
 import { useEffect, useState } from "react";
 import ViewCartPage from "./pages/ViewCartPage";
-import { Success } from "./Success";
 import CreateAccountPage from "./pages/CreateAccountPage";
 import ProfilePage from "./pages/ProfilePage";
 import { PageNotFound } from "./pages/404Page";
+import { AboutUs } from "./pages/AboutUs";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -48,7 +48,7 @@ function App() {
         />
         <Route path="profile_page" element={<ProfilePage />} />
         <Route path="shopping-cart" element={<ViewCartPage />} />
-        <Route path="success" element={<Success />} />
+        <Route path="aboutUs" element={<AboutUs />} />
       </Route>
     )
   );

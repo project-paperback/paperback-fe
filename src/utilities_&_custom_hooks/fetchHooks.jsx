@@ -36,7 +36,7 @@ export function useFetchData(url, id, currentPage) {
     const category = encodedCategory;
     secondURL += `&category=${category}`;
   }
-  console.log(secondURL);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
