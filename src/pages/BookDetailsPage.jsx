@@ -52,7 +52,7 @@ export function BookDetailsPage() {
               </div>
               <div className=" w-[80%] lg:w-[50%] flex flex-col gap-6 mx-auto lg:mx-0">
                 <h1 className="text-2xl">{data.book.title}</h1>
-                <h1 className="text-lg">Publisher: {data.book.title}</h1>
+                <h1 className="text-lg">Publisher: {data.book.publisher}</h1>
                 <div className="text-lg flex gap-2">
                   <p>{data.book.authors.join(", ")} </p>
                 </div>

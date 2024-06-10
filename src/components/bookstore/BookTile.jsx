@@ -1,5 +1,9 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 const BookTile = (props) => {
+  const [isAdded, setIsAdded] = useState(false);
+
+  setTimeout(() => setIsAdded(false), 1500);
   return (
     <div className={`card`} id={props.bookId}>
       {/* Image container start */}
@@ -37,14 +41,17 @@ const BookTile = (props) => {
         <p className="line-clamp-1 text-xs">{props.authors}</p>
         <p className="libre-baskerville-regular">£{props.price.toFixed(2)}</p>
         <button
-          className={`py-3 text-center bg-[#023047] text-white add-to-cart-btn ${props.buttonStyle}`}
+          className={`py-3 text-center bg-[#023047] text-white add-to-cart-btn ${
+            props.buttonStyle
+          } ${isAdded ? "send-to-basket" : ""}`}
           // >
           //   <button
           onClick={() => {
+            setIsAdded((isAdded) => !isAdded);
             props.sendToBasket(props.bookId);
           }}
         >
-          Add to basket
+          {isAdded ? "Sent to Basket" : " Add to basket"}
           {/* </button> */}
         </button>
       </div>
