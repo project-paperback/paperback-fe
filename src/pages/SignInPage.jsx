@@ -44,7 +44,7 @@ export function SignInPage(props) {
           <span className="loading loading-spinner loading-lg "></span>
         </div>
       ) : (
-        <div className=" w-[100vw] h-[80vh] lg:h-[100vh] flex content-center lg:w-full lg:block ">
+        <div className=" w-[100vw] mt-[2rem] lg:h-[100vh] flex content-center lg:w-full lg:block ">
           <div className=" lg:bg-gray-300 relative w-[90%] lg:w-[70%] h-[70%] mx-auto my-auto lg:my-0">
             <div className=" bg-white mx-auto w-[100%] lg:w-[60%]  lg:absolute  lg:top-[-10%] lg:right-[20%] px-[2rem] border-[10px] border-[#023047]">
               <LoginForm

@@ -22,7 +22,7 @@ export function ContactUsPage() {
             <span className="text-[1.2rem]">For More Info</span> <br />
             CONTACT US
           </h1>
-          <div className=" w-[100vw] h-[40vh] lg:h-[100vh] flex content-center lg:w-full lg:block ">
+          <div className=" w-[100vw] h-[40%] lg:h-[100vh] flex content-center lg:w-full lg:block ">
             <div className=" lg:bg-gray-300 relative w-[90%] lg:w-[70%] h-[70%] mx-auto my-auto lg:my-0">
               <div className="border-[10px] border-[#023047] bg-white mx-auto w-[100%] lg:w-[70%] xl:w-[60%] lg:absolute  lg:top-[-10%] lg:right-[15%] xl:right-[20%]  lg:px-[2rem] xl:px-[4rem]">
                 <ContactForm
