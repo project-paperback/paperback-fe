@@ -29,7 +29,7 @@ export function AboutUs() {
       </div>
       <div className="lg:flex justify-center gap-[4rem]">
         <div className="">
-          <h2>Riccardo Fotti/ Data Engineer</h2>
+          <h2>Riccardo Foti/ Software & Data Engineer</h2>
           <div className="flex gap-5 justify-center my-5">
             <Link
               to={"https://www.linkedin.com/in/riccardo-foti/"}

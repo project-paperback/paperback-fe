@@ -1,10 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Navigate, useSearchParams } from "react-router-dom";
 // components
 import { usePagination } from "../utilities_&_custom_hooks/General";
 import { IconArrowLeftCircle, IconArrowRightCircle } from "../components/Icons";
 import BookTile from "../components/bookstore/BookTile";
-import { BasketWarningModal } from "../components/SmallComponents";
+import {
+  BasketWarningModal,
+  QuickViewModal,
+} from "../components/SmallComponents";
 import { Filters } from "../components/BookFilter";
 // Custom hooks
 import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
@@ -12,6 +15,8 @@ import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
 
 export function BookstorePage() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [bookId, setBookId] = useState("");
   const topRef = useRef(null);
 
   const scrollToTop = () => {
@@ -52,6 +57,14 @@ export function BookstorePage() {
   const hidden = data.msg === "More books coming soon!" ? "hidden" : "block";
   return (
     <div className="relative">
+      {isQuickViewOpen && (
+        <QuickViewModal
+          isQuickViewOpen={isQuickViewOpen}
+          setIsQuickViewOpen={setIsQuickViewOpen}
+          data={data}
+          bookId={bookId}
+        />
+      )}
       {errorInBasket && (
         <BasketWarningModal
           setErrorInBasket={setErrorInBasket}
@@ -93,6 +106,9 @@ export function BookstorePage() {
                 key={book._id}
                 bookId={book._id}
                 sendToBasket={sendToBasket}
+                isQuickViewOpen={isQuickViewOpen}
+                setIsQuickViewOpen={setIsQuickViewOpen}
+                setBookId={setBookId}
               />
             ))
           ) : (
