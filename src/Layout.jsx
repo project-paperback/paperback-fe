@@ -15,7 +15,7 @@ export function Layout(props) {
     }
   }, [isOpen]);
   return (
-    <div className="relative flex flex-col justify-between h-screen ">
+    <div className="relative flex flex-col justify-between h-screen">
       <header className="lg:px-10">
         <NavBar
           setUser={props.setUser}
