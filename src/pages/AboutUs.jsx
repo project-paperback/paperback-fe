@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { IconGithub, IconLinkedin } from "../components/Icons";
 export function AboutUs() {
   return (
-    <div className="flex flex-col gap-10   text-center text-[1.2rem] px-2 lg:px-0">
+    <div className="text-center flex flex-col gap-8 text-[1.2rem] px-2 lg:px-0 lg:mt-[10rem]  mt-[5rem]">
       <div>
         <p>Thank you for visiting our project</p>
         <p>

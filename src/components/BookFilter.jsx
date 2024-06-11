@@ -29,10 +29,8 @@ export function Filters() {
   useEffect(() => {
     const params = Object.fromEntries([...searchParams]);
 
-    console.log(params);
     if (selectedPublishers.length > 0) {
       params.publisher = selectedPublishers.join(",");
-      console.log(params);
     } else {
       delete params.publisher; // Remove publisher param if none selected
     }
@@ -43,7 +41,6 @@ export function Filters() {
     }
 
     setSearchParams(params);
-    console.log(searchParams);
   }, [selectedPublishers, selectedCategories, searchParams]);
 
   return (

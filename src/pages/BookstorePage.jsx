@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Navigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 // components
 import { usePagination } from "../utilities_&_custom_hooks/General";
 import { IconArrowLeftCircle, IconArrowRightCircle } from "../components/Icons";
@@ -14,7 +14,7 @@ import { useFetchData } from "../utilities_&_custom_hooks/fetchHooks";
 import { useSendToBasket } from "../utilities_&_custom_hooks/postLogs";
 
 export function BookstorePage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const [bookId, setBookId] = useState("");
   const topRef = useRef(null);
