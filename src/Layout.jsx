@@ -35,7 +35,11 @@ export function Layout(props) {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div
+        className={`flex flex-col  h-screen ${
+          !isNavigating && "justify-between"
+        }`}
+      >
         <header className="lg:px-10">
           <NavBar
             setUser={props.setUser}
@@ -50,7 +54,7 @@ export function Layout(props) {
             setUser={props.setUser}
           />
         </header>
-        <main className="lg:px-10 mb-[5rem]">
+        <main className="lg:px-10 mb-[5rem] ">
           <Outlet />
         </main>
         {!isPending && !isNavigating ? (
