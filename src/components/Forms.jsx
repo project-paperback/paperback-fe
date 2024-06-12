@@ -79,7 +79,7 @@ export function LoginForm(props) {
 export function SignUp(props) {
   return (
     <form className={props.className}>
-      <h3 className="text-[2rem] font-bold roboto-regular">Sign Up</h3>
+      <h3 className="text-[2rem] font-bold roboto-regular pb-6">Sign Up</h3>
       <div className="flex flex-col gap-6 lg:gap-[3.5rem] w-[70%] lg:w-[100%]">
         <div className="flex lg:gap-[50px] gap-10 flex-col lg:flex-row ">
           <InputField
@@ -153,7 +153,7 @@ export function SignUp(props) {
             props.handleSignUp();
             props.setIsShaking((isShaking) => !isShaking);
           }}
-          className="hover:opacity-[0.6] transition-all duration-[200ms]"
+          className="hover:opacity-[0.6] transition-all duration-[200ms] p-3 lg:p-0"
         >
           Continue
         </button>
@@ -319,7 +319,7 @@ export function ContactForm(props) {
           }
         />
       </div>
-      <button className="hover:opacity-[0.6] transition-all duration-[200ms]">
+      <button className="hover:opacity-[0.6] transition-all duration-[200ms] pt-5 lg:pt-0">
         Submit
       </button>
     </form>

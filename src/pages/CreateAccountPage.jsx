@@ -56,7 +56,7 @@ const CreateAccountPage = (props) => {
         </div>
       ) : (
         <div className=" w-[100vw] h-[40%] lg:h-[100vh] flex content-center lg:w-full lg:block ">
-          <div className=" lg:bg-gray-300 relative w-[90%] lg:w-[70%] h-[70%] mx-auto my-auto lg:my-0">
+          <div className=" lg:bg-gray-300 relative w-[90%] lg:w-[70%] lg:min-w-[950px] h-[650px] mx-auto my-auto lg:my-0">
             <div className="border-[10px] border-[#023047] bg-white mx-auto w-[100%] lg:w-[60%] lg:absolute  lg:top-[-10%] lg:right-[20%]  lg:px-[4rem]">
               <SignUp
                 className={
