@@ -71,17 +71,17 @@ export function BookDetailsPage() {
 
                 <div className="flex flex-col gap-3">
                   <h3>Synopsis</h3>
-                  <p id="synopsis" className="line-clamp-[5]">
+                  <p id="synopsis" className="line-clamp-[2]">
                     {data.book.description}
                   </p>
-                  {data.book.description.length > 331 && (
+                  {data.book.description.length > 231 && (
                     <button
                       className="underline"
                       onClick={() => {
                         setIsReadMore(!isReadMore);
                         document
                           .getElementById("synopsis")
-                          .classList.toggle("line-clamp-[5]");
+                          .classList.toggle("line-clamp-[2]");
                       }}
                     >
                       {isReadMore ? "Read more" : "Show less"}
