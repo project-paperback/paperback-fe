@@ -4,13 +4,13 @@ import { InputField } from "../components/SmallComponents";
 const ProfilePage = () => {
   return (
     <div className="2xl:w-[1100px] lg:w-[80%] m-auto px-10">
-      <div className="flex items-center">
+      <div className="flex items-center py-10">
         <img
           src="https://t4.ftcdn.net/jpg/05/09/59/75/360_F_509597532_RKUuYsERhODmkxkZd82pSHnFtDAtgbzJ.jpg"
-          alt=""
-          className="w-[10rem] sm:w-[15rem]"
+          alt="Profile Avatar"
+          className="md:w-[12rem] w-[5rem]"
         />
-        <div className="leading-4">
+        <div className="leading-4 w-full">
           <InputField
             autoComplete={"off"}
             placeholder={"Name"}
@@ -38,7 +38,7 @@ const ProfilePage = () => {
             placeholder={"Email"}
             type={"email"}
             className={
-              "placeholder:text-[#023047] bg-gray-200 p-2 w-[50%] outline-none"
+              "placeholder:text-[#023047] bg-gray-200 p-2 md:w-[50%] w-[100%] max-w-[400px] outline-none"
             }
           />{" "}
           <br />
@@ -47,7 +47,7 @@ const ProfilePage = () => {
             placeholder={"Password"}
             type={"password"}
             className={
-              "placeholder:text-[#023047] bg-gray-200 p-2 w-[50%] outline-none"
+              "placeholder:text-[#023047] bg-gray-200 p-2 md:w-[50%] w-[100%] max-w-[400px] outline-none"
             }
           />
           <p>
