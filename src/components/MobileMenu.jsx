@@ -29,21 +29,32 @@ const MobileMenu = (props) => {
               <p>Sign In</p>
             </NavLink>
           ) : (
-            <Link
-              className="text-[#023047] hover:opacity-[0.7] flex items-center gap-2 "
-              onClick={() => {
-                axios
-                  .post("https://paperback-vy73.onrender.com/api/sign_out")
-                  .then(() => {
-                    props.setUser(null);
-                    localStorage.clear();
-                  });
-                props.setIsOpen(!props.isOpen);
-              }}
-            >
-              <IconProfile />
-              <p>Sign Out</p>
-            </Link>
+            <div className="flex flex-col gap-6 items-center">
+              <div className="hover:opacity-[0.7]">
+                <NavLink
+                  to="profile_page"
+                  onClick={() => props.setIsOpen(!props.isOpen)}
+                  className="flex items-center gap-2"
+                >
+                  <IconProfile />
+                  Profile
+                </NavLink>
+              </div>
+              <Link
+                className="text-[#023047] hover:opacity-[0.7] flex items-center gap-2 "
+                onClick={() => {
+                  axios
+                    .post("https://paperback-vy73.onrender.com/api/sign_out")
+                    .then(() => {
+                      props.setUser(null);
+                      localStorage.clear();
+                    });
+                  props.setIsOpen(!props.isOpen);
+                }}
+              >
+                <p>Sign Out</p>
+              </Link>
+            </div>
           )}
         </div>
         <NavLink
