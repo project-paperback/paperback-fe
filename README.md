@@ -1,5 +1,7 @@
 # Paperback ecommerce project
 
+Link to the website &nbsp; &rarr; &nbsp; https://paperback-books.netlify.app
+
 This repository contains the frontend work that complements the Paperback full-stack project, which provides a service offering books to users for purchase. It includes tools for authentication and payment functionalities, enabling users to create their own accounts and obtain their preferred books.
 
 It's important to note that the payment and basket checkout implementations are for development purposes only. The API used to handle payments does not process real transactions, as this project is solely for demonstration purposes.
